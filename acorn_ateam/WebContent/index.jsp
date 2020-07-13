@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>에이콘 펜션/title>
+<title>에이콘 펜션</title>
 </head>
 <body>
 
