@@ -14,7 +14,7 @@ public class RoomDao {
 	private static RoomDao dao;
 	private RoomDao() {}
 	
-	// ?—†?œ¼ë©? ë§Œë“¦
+	// ¾øÀ¸¸é ¸¸µê
 	public static RoomDao getInstance() {
 		if(dao==null) {
 			dao=new RoomDao();
@@ -22,7 +22,7 @@ public class RoomDao {
 		return dao;
 	}
 	
-	// ë°? ëª©ë¡ ê°?? ¸?˜¤?Š” ì½”ë“œ
+
 	public List<RoomDto> getList(){
 		List<RoomDto> list=new ArrayList<>();
 		Connection conn=null;
