@@ -14,7 +14,6 @@ public class RoomDao {
 	private static RoomDao dao;
 	private RoomDao() {}
 	
-	// 없으면 만듦
 	public static RoomDao getInstance() {
 		if(dao==null) {
 			dao=new RoomDao();
