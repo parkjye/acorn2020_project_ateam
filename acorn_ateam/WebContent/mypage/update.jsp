@@ -3,31 +3,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
-	
-	String id=request.getParameter("id");
+	String id=(String)session.getAttribute("id");
 	String pwd=request.getParameter("pwd");
-	String email=request.getParameter("email");
 	String phone=request.getParameter("phone");
+	String email=request.getParameter("email");
 	
 	UsersDto dto=new UsersDto();
 	dto.setUsers_id(id);
 	dto.setUsers_pwd(pwd);
-	dto.setUsers_email(email);
 	dto.setUsers_phone(phone);
+	dto.setUsers_email(email);
 	
-	boolean isSuccess=UsersDao.getInstance().insert(dto);
+	boolean isSuccess=UsersDao.getInstance().update(dto);
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>signup/signup</title>
+<title>Insert title here</title>
 </head>
 <body>
+<%
+	if(isSuccess){
+%>
 <script>
-	alert("회원가입 완료");
-	// 세션 받아서 바로 자동 로그인 후 메인 페이지 이동
+	alert("수정 완료");
+	location.href="${pageContext.request.contextPath }/mypage.jsp";
 </script>
+<%}else{ %>
+<script>
+	alert("수정 실패");
+	location.href="${pageContext.request.contextPath }/update-form.jsp";
+</script>
+<%} %>
 </body>
 </html>

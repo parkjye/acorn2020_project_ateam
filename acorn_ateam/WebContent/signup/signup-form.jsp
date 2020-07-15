@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>signup/signup-form</title>
 </head>
 <body>
 <div class="container">
