@@ -19,7 +19,7 @@
 	
 	<filter>
 		<filter-name>EncodingFilter</filter-name>
-		<filter-class>appfilter.EncodingFilter</filter-class>
+		<filter-class>app.filter.EncodingFilter</filter-class>
 		
 		<init-param>
 			<param-name>encoding</param-name>

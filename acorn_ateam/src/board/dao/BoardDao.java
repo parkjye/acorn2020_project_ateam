@@ -37,7 +37,8 @@ public class BoardDao {
 			//실행할 sql 문 준비하기
 			//글 내용을 제외한 모든 요소, 작성일 기준으로 desc
 			String sql = "select board_num, users_id, board_title,"
-					+ " board_view, board_comment_count, board_up, board_down, board_date"
+					+ " board_view, board_comment_count, board_up, board_down,"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mi') as board_date"
 					+ " from tb_board"
 					+ " order by board_date desc";
 			
@@ -49,9 +50,10 @@ public class BoardDao {
 			rs = pstmt.executeQuery();
 			
 			//반복문 돌면서 결과 값 추출하기 
-			if(rs.next()) {
+			while(rs.next()) {
 				BoardDto dto = new BoardDto();
 				dto.setBoard_num(rs.getInt("board_num"));
+				dto.setUsers_id(rs.getString("users_id"));
 				dto.setBoard_title(rs.getString("board_title"));
 				dto.setBoard_view(rs.getInt("board_view"));
 				dto.setBoard_comment_count(rs.getInt("board_comment_count"));
