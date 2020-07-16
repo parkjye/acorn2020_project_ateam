@@ -14,4 +14,6 @@
 	</main>
 	<jsp:include page="pages/templates/footer.jsp"></jsp:include>
 </body>
+
+<a href="./pages/reviews.jsp">리뷰가는링크</a>
 </html>
