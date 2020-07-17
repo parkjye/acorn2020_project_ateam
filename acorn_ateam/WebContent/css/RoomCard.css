@@ -1,0 +1,36 @@
+/* roomCard */
+#roomCard img {
+  width: 500px;
+  height: 100%;
+}
+#roomCard .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+#roomCard .detail__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 100%;
+  background-color: #f3f3f3;
+}
+#roomCard .detail__info * {
+  margin: 10px 0;
+}
+#roomCard .buttons * {
+  margin: 0 20px;
+  padding: 10px;
+  background-color: gray;
+  border: 1px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.title-orange {
+  color: #d6ae28;
+}
+.title-gray {
+  color: #a49ea1;
+}
