@@ -29,4 +29,49 @@ function hiddenTitle(e) {
   }
 }
 
+//navbar를 투명하게만들고 움직일때 최상단에 위치하게함.
+const navbar = document.getElementById("navbar");
+const navbarHeight = navbar.getBoundingClientRect().height;
+document.addEventListener("scroll", () => {
+  let y = window.scrollY;
+  if (y > navbarHeight) {
+    navbar.classList.add("navbar--dark");
+    document.querySelector(".navbar__logo").childNodes[1].classList.add("white");
+
+    const a = document.querySelectorAll(".navbar__menu__item").forEach((item) => {
+      item.classList.add("white");
+      item.childNodes[1].classList.add("white");
+      item.childNodes[4].classList.add("white");
+    });
+  } else {
+    navbar.classList.remove("navbar--dark");
+    document.querySelector(".navbar__logo").childNodes[1].classList.remove("white");
+
+    const a = document.querySelectorAll(".navbar__menu__item").forEach((item) => {
+      item.classList.remove("white");
+      item.childNodes[1].classList.remove("white");
+      item.childNodes[4].classList.remove("white");
+    });
+  }
+});
+function scrollTo(element, dir) {
+  if (dir == "up") {
+    dir = element.offsetTop;
+  } else {
+    dir = element.offsetHeight;
+  }
+  window.scroll({
+    behavior: "smooth",
+    left: 0,
+    top: dir,
+  });
+}
+
+function init() {
+  window.addEventListener("load", () => {
+    scrollTo(document.getElementsByTagName("body")[0], "up");
+  });
+}
+
 hoverClassImg();
+init();

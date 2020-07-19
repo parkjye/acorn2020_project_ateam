@@ -24,19 +24,34 @@
   font-weight: var(--weight-semi-bold);
 }
 .navbar__menu__item {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
   padding: 8px 12px;
   margin: 0 4px;
   color: var(--color-black);
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: var(--size-border-radius);
+  align-items: center;
+}
+.navbar__menu__item * {
+  color: black;
+}
+.navbar__menu__item span {
+  font-size: var(--font-micro);
 }
 
 .navbar__menu__item:hover {
-  border-color: var(--color-white);
-  background-color: var(--color-dark-pink);
+  border-color: var(--color-black);
+  /* background-color: var(--color-dark-pink); */
 }
-
+.white {
+  color: white;
+}
+.white:hover {
+  border-color: white;
+}
 .navbar__toggle-btn {
   position: absolute;
   top: 19px;
@@ -46,5 +61,6 @@
   color: var(--color-white);
 }
 #navbar.navbar--dark {
-  background-color: var(--color-pink);
+  background-color: rgba(0, 0, 0, 0.541);
+  color: white;
 }
