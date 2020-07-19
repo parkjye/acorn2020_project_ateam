@@ -1,0 +1,32 @@
+#footer {
+  padding: 0;
+  text-align: center;
+  margin: auto;
+  background-color: gray;
+}
+#footer .section {
+  margin: 0 auto;
+  padding: 0;
+}
+#footer span {
+  font-size: 13px;
+}
+#footer .container {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#footer .container .footer__row {
+  margin: 10px 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+#footer .container .footer__row .line {
+  height: 1px;
+  width: 100%;
+  background-color: white;
+}
