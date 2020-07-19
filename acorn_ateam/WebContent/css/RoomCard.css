@@ -1,6 +1,6 @@
 /* roomCard */
 #roomCard {
-  background-color: red;
+  /* background-color: red; */
   width: 100%;
   height: auto;
 }
@@ -14,12 +14,17 @@
   justify-content: center;
   flex-wrap: wrap;
   height: 300px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+#roomCard .container * {
+  border-radius: 5px;
 }
 #roomCard .content__area {
+  border: 1px solid #000;
   width: 300px;
   height: inherit;
   padding: 0 20px;
-  background-color: rebeccapurple;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
