@@ -1,0 +1,23 @@
+#roomIntroduce .container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aquamarine;
+  /* justify-content: space-between; */
+  justify-content: center;
+  align-items: center;
+}
+#roomIntroduce .room__rows {
+  background-color: blue;
+  height: 200px;
+  width: 200px;
+  margin: 0 20px;
+  /* position: relative; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+#roomIntroduce .room__rows:hover {
+  cursor: pointer;
+}
+#roomIntroduce .title {
+}
