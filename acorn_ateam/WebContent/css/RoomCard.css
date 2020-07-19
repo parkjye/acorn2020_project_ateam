@@ -2,13 +2,13 @@
 #roomCard {
   background-color: red;
   width: 100%;
+  height: auto;
 }
 #roomCard img {
   width: 300px;
   height: 100%;
 }
 #roomCard .container {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +17,7 @@
 }
 #roomCard .content__area {
   width: 300px;
-  height: 100%;
+  height: inherit;
   padding: 0 20px;
   background-color: rebeccapurple;
   display: flex;
