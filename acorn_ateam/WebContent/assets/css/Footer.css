@@ -2,7 +2,8 @@
   padding: 0;
   text-align: center;
   margin: auto;
-  background-color: gray;
+  background-color: rgba(0, 0, 0, 0.541);
+  /* background-color: red; */
 }
 #footer .section {
   margin: 0 auto;
