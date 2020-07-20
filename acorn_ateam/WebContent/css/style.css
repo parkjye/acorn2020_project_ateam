@@ -57,9 +57,8 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Yeon Sung", cursive;
   margin: 0;
-  /* cursor: pointer; */
 }
 a {
   text-decoration: none;
@@ -78,7 +77,6 @@ button {
 }
 
 /* Typography */
-
 h1 {
   font-size: var(--font-large);
 
@@ -92,7 +90,7 @@ h1 {
 h2 {
   font-size: var(--font-medium);
 
-  font-weight: var(--weight-semi-bold);
+  font-weight: var(--weight-regular);
 
   color: var(--color-black);
 
@@ -110,7 +108,7 @@ h3 {
 }
 
 h4 {
-  font-size: var(--font-small);
+  font-size: var(--font-regular);
 
   font-weight: var(--weight-regular);
 
@@ -119,7 +117,7 @@ h4 {
   margin: 8px 0;
 }
 h5 {
-  font-size: var(--font-micro);
+  font-size: var(--font-regular);
 
   font-weight: var(--weight-regular);
 

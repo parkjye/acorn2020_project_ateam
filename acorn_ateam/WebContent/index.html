@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="./css/Food.css" />
     <link rel="stylesheet" href="./css/Footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Yeon+Sung&display=swap" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&family=Open+Sans:ital,wght@0,400;1,600&display=swap" rel="stylesheet" />
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0f27c20b6cce8806ccf9b044c36339d0"></script>
 
     <script src="https://kit.fontawesome.com/c0a9fdc19a.js" crossorigin="anonymous"></script>
     <script defer src="./assets/js/main.js"></script>
@@ -24,6 +25,7 @@
     <nav id="navbar" class="">
       <div class="navbar__logo">
         <a href="#">ACORN PENSION</a>
+        <img id="home__cup" src="./assets/images/cup.png" alt="cup" />
       </div>
       <ul class="navbar__menu">
         <li class="navbar__menu__item" data-link="#about">
@@ -57,10 +59,14 @@
     <main id="home">
       <div class="home__container">
         <h1 class="home__title">
-          안녕하세요<br />
-          에이콘 팬션입니다.
+          여기다가 뭐라고 쓸까요
         </h1>
-        <h2 class="home__description">잠시 휴식이 필요할 때</h2>
+        <h2 class="home__description">
+          무슨말이 어울려요
+        </h2>
+      </div>
+      <div id="home__arrow" class="animate__animated animate__slideInDown animate__infinite">
+        <i class="fas fa-arrow-down"></i>
       </div>
     </main>
 
@@ -88,35 +94,35 @@
     <section id="roomCard" class="section">
       <h1>Room Information</h1>
       <div class="container">
-        <div class="content__area">
+        <div id="roomCard_content" class="content__area">
           <div class="content__area__row">
-            <h4 class="title-orange">1.강의실</h4>
+            <h4 id="roomInfo__title" class="title-orange">1.강의실</h4>
           </div>
           <div class="content__area__row">
-            <h5 class="title-gray">풍경이 좋은 구조/좌석30개</h5>
+            <h5 id="roomInfo__info" class="title-gray">풍경이 좋은 구조/좌석30개</h5>
           </div>
           <div class="content__area__row">
-            <h5 class="title-gray">스타일</h5>
+            <h5>스타일</h5>
             <div class="devider"></div>
-            <h5>복층</h5>
+            <h5 id="roomInfo__floor">복층</h5>
           </div>
           <div class="content__area__row">
             <h5>인원(최대)</h5>
             <div class="devider"></div>
-            <h5>30명</h5>
+            <h5 id="roomInfo__Capacity">30명</h5>
           </div>
           <div class="content__area__row">
             <h5>크기</h5>
             <div class="devider"></div>
-            <h5>40평형</h5>
+            <h5 id="roomInfo__Size">40평형</h5>
           </div>
           <div class="content__area__row">
-            <button class="btn"><</button>
-            <button class="btn">></button>
+            <button id="roomInfo__btn-left" class="btn"><</button>
+            <button id="roomInfo__btn-right" class="btn">></button>
           </div>
         </div>
 
-        <img src="assets/images/room1.jpg" alt="" class="content__img" />
+        <img id="roomInfo__img" src="assets/images/room1.jpg" alt="" class="content__img" />
         <div class="detail__info">
           <span class="title-orange">Contact Us</span>
           <h4>010-2325-1002</h4>
@@ -130,7 +136,7 @@
         </div>
       </div>
     </section>
-
+    <div id="map" style="width: 500px; height: 400px;"></div>
     <section id="food" class="section">
       <h1>Food</h1>
       <ul class="list__area">

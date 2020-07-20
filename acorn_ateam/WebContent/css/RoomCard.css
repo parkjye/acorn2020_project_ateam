@@ -1,8 +1,8 @@
 /* roomCard */
 #roomCard {
-  /* background-color: red; */
   width: 100%;
   height: auto;
+  padding-top: 0%;
 }
 #roomCard img {
   width: 300px;
@@ -15,13 +15,10 @@
   flex-wrap: wrap;
   height: 300px;
   background-color: #ffffff;
-  border-radius: 5px;
 }
 #roomCard .container * {
-  border-radius: 5px;
 }
 #roomCard .content__area {
-  border: 1px solid #000;
   width: 300px;
   height: inherit;
   padding: 0 20px;
@@ -49,25 +46,35 @@
   justify-content: center;
   width: 300px;
   height: 100%;
-  background-color: #f3f3f3;
+  background-color: #ffffffd3;
 }
 #roomCard .detail__info * {
   margin: 10px 0;
 }
 #roomCard .buttons * {
   margin: 0 20px;
+  margin-top: 33px;
   padding: 10px;
-  background-color: gray;
+  background-color: #d6ae28;
   border: 1px solid #000;
   border-radius: 10px;
   cursor: pointer;
+}
+
+#roomCard .buttons *:hover {
+  background-color: #f3f3f3;
+  transition: all 250ms ease-in;
 }
 #roomCard .btn {
   margin-top: 60px;
   margin-right: 20px;
   padding: 5px 20px;
   border-radius: 5px;
-  background-color: orange;
+  background-color: #d6ae28;
+}
+#roomCard .btn:hover {
+  background-color: #f3f3f3;
+  transition: all 250ms ease-in;
 }
 .title-orange {
   color: #d6ae28;
