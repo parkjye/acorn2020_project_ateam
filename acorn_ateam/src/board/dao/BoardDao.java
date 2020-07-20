@@ -95,7 +95,6 @@ public class BoardDao {
 			conn = new DbcpBean().getConn();
 
 			//실행할 sql 문 준비하기
-			//작성자, 제목, 내용
 			String sql = "select users_id, board_title, board_content"
 					+ " from tb_board"
 					+ " where board_num=?";
@@ -111,6 +110,7 @@ public class BoardDao {
 			//반복문 돌면서 결과 값 추출하기 
 			while(rs.next()) {
 				dto = new BoardDto();
+				dto.setBoard_num(board_num);
 				dto.setUsers_id(rs.getString("users_id"));
 				dto.setBoard_title(rs.getString("board_title"));
 				dto.setBoard_content(rs.getString("board_content"));				
@@ -223,4 +223,44 @@ public class BoardDao {
 		}
 	}
 
+	//글 삭제
+	public boolean deleteReview(int Board_num) {
+		//필요한 객체의 참조값을 담을 지역변수 만들기 
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int flag = 0;
+
+		try {
+			//Connection Pool에서 Connection 객체를 하나 가지고 온다.
+			conn = new DbcpBean().getConn();
+
+			String sql = "delete from tb_board where board_num=?";
+
+			pstmt = conn.prepareStatement(sql);
+
+			//sql문에 ? 에 바인딩 
+			pstmt.setInt(1, Board_num);
+
+			//sql문 수행하고 update or insert or delete된 row의 갯수 리턴받기
+			flag = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close(); //Connection 반납하기
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }//BoardDao
