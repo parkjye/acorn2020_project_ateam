@@ -40,7 +40,7 @@ public class BoardDao {
 					+ " board_view, board_comment_count, board_up, board_down,"
 					+ " to_char(board_date, 'yy/mm/dd hh24:mi') as board_date"
 					+ " from tb_board"
-					+ " order by board_date desc";
+					+ " order by board_num desc";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -143,12 +143,12 @@ public class BoardDao {
 			conn = new DbcpBean().getConn();
 			
 			//조회수, 댓글수, 추천, 비추천 default=0; 
+			//board_num은 trigger구현으로 sql문에서 작성안함
 			String sql = "insert into tb_board"
-					+ " (board_num,"
-					+ " users_id, board_title, board_content,"
+					+ " (users_id, board_title, board_content,"
 					+ " board_view, board_comment_count, board_up, board_down,"
 					+ " board_date)"
-					+ " values(tb_board_seq.nextval, ?, ?, ?, 0, 0, 0, 0, sysdate)";
+					+ " values(?, ?, ?, 0, 0, 0, 0, sysdate)";
 
 			pstmt = conn.prepareStatement(sql);
 
