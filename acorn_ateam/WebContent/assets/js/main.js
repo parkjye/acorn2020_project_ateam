@@ -91,7 +91,7 @@ function init() {
 
 const roomTitles = ["1.강의실", "2.강의실", "3.강의실", "4.강의실"];
 const roomInfos = ["좋은 구조/좌석30개", "채광이 좋은 구조/좌석30개", "공간이 넓은 구조/좌석30개", "풍경이 좋은 구조/좌석30개"];
-const roomFloors = ["단층", "단층", "단층", "단층"];
+const roomFloors = ["카페형", "사무실형", "도서관형", "야외형"];
 const roomCapacity = ["30명", "25명", "35명", "99명"];
 const roomSize = ["51평형", "48평형", "60평형", "55평형"];
 const roomImges = ["room1", "room2", "room3", "room4"];
