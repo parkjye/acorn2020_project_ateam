@@ -4,18 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=s, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/Reset.css" />
-    <link rel="stylesheet" href="./css/Style.css" />
-    <link rel="stylesheet" href="./css/Home.css" />
-    <link rel="stylesheet" href="./css/Navbar.css" />
-    <link rel="stylesheet" href="./css/RoomIntroduce.css" />
-    <link rel="stylesheet" href="./css/RoomCard.css" />
-    <link rel="stylesheet" href="./css/Food.css" />
-    <link rel="stylesheet" href="./css/Footer.css" />
+    <link rel="stylesheet" href="./assets/css/Reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/Navbar.css" />
+    <link rel="stylesheet" href="./assets/css/Home.css" />
+    <link rel="stylesheet" href="./assets/css/RoomCard.css" />
+    <link rel="stylesheet" href="./assets/css/RoomIntroduce.css" />
+    <link rel="stylesheet" href="./assets/css/Food.css" />
+    <link rel="stylesheet" href="./assets/css/Footer.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Yeon+Sung&display=swap" rel="stylesheet" />
-
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0f27c20b6cce8806ccf9b044c36339d0"></script>
 
     <script src="https://kit.fontawesome.com/c0a9fdc19a.js" crossorigin="anonymous"></script>
     <script defer src="./assets/js/main.js"></script>
@@ -29,24 +28,34 @@
       </div>
       <ul class="navbar__menu">
         <li class="navbar__menu__item" data-link="#about">
-          <i class="fas fa-book"></i><br />
-          <span>소개</span>
+          <a href="">
+            <i class="fas fa-book"></i><br />
+            <span>소개</span>
+          </a>
         </li>
         <li class="navbar__menu__item" data-link="#reserve">
-          <i class="far fa-calendar-alt"></i><br />
-          <span>예약하기</span>
+          <a href="">
+            <i class="far fa-calendar-alt"></i><br />
+            <span>예약하기</span>
+          </a>
         </li>
         <li class="navbar__menu__item" data-link="#review">
-          <i class="fas fa-clipboard-list"></i><br />
-          <span>이용후기</span>
+          <a href="">
+            <i class="fas fa-clipboard-list"></i><br />
+            <span>이용후기</span>
+          </a>
         </li>
         <li class="navbar__menu__item" data-link="#login">
-          <i class="fas fa-sign-in-alt"></i><br />
-          <span>로그인</span>
+          <a href="">
+            <i class="fas fa-sign-in-alt"></i><br />
+            <span>로그인</span>
+          </a>
         </li>
         <li class="navbar__menu__item" data-link="#signup">
-          <i class="fas fa-user-plus"></i><br />
-          <span>회원가입</span>
+          <a href="">
+            <i class="fas fa-user-plus"></i><br />
+            <span>회원가입</span>
+          </a>
         </li>
       </ul>
 
@@ -92,7 +101,11 @@
     </section>
 
     <section id="roomCard" class="section">
-      <h1>Room Information</h1>
+      <div class="roomCard__title">
+        <h1>Room Information</h1>
+        <div class="roomCard__line animate__animated animate__pulse animate__infinite"></div>
+      </div>
+
       <div class="container">
         <div id="roomCard_content" class="content__area">
           <div class="content__area__row">
@@ -103,17 +116,17 @@
           </div>
           <div class="content__area__row">
             <h5>스타일</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5 id="roomInfo__floor">카페형</h5>
           </div>
           <div class="content__area__row">
             <h5>인원(최대)</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5 id="roomInfo__Capacity">30명</h5>
           </div>
           <div class="content__area__row">
             <h5>크기</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5 id="roomInfo__Size">51평형</h5>
           </div>
           <div class="content__area__row">
@@ -136,7 +149,7 @@
         </div>
       </div>
     </section>
-    <div id="map" style="width: 500px; height: 400px;"></div>
+
     <section id="food" class="section">
       <h1>Food</h1>
       <ul class="list__area">
@@ -187,9 +200,9 @@
           </div>
           <div class="footer__row">
             <h5>이용약관</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5>개인정보 처리방침</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5>사업자정보확인</h5>
           </div>
           <div class="footer__row">

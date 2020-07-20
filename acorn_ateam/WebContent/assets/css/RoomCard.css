@@ -32,12 +32,24 @@
   justify-content: center;
   align-items: center;
 }
-.devider {
+.divider {
   width: 1px;
   height: 10px;
   background-color: orange;
   margin: 0 20px;
   display: inline-block;
+}
+.roomCard__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.roomCard__line {
+  width: 50%;
+  height: 1px;
+  background-color: orange;
 }
 
 #roomCard .detail__info {
