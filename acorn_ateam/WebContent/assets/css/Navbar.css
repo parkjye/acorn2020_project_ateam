@@ -45,9 +45,16 @@
   border-radius: var(--size-border-radius);
   align-items: center;
 }
+.navbar__menu__item a {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
 .navbar__menu__item * {
   color: black;
 }
+
 .navbar__menu__item span {
   font-size: var(--font-micro);
 }
