@@ -5,6 +5,8 @@
     <% 
     	BoardDao dao = BoardDao.getInstance();
     	List<BoardDto> list = dao.getListofReviews();
+    	
+    	String users_id = (String)session.getAttribute("users_id");
     %>
 <!DOCTYPE html>
 <html>
@@ -13,6 +15,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%if(users_id != null) {%>
+	<button onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">글쓰기</button>
+	<%} %>
 	<div class="tableWrap">
 		<table>
 			<thead>
