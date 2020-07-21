@@ -77,7 +77,6 @@
 </head>
 <body>
 	<jsp:include page="templates/nav.jsp"></jsp:include>
-
 	<%if(users_id != null) {%>
 	<button onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">글쓰기</button>
 	<%} %>

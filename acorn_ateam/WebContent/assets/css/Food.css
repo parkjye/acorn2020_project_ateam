@@ -1,12 +1,12 @@
 #food {
   height: auto;
-  /* background-color: aquamarine; */
 }
 
+
 #food li {
-  border: 1px solid gray;
+  border: 1px solid rgba(185, 182, 182, 0.76);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   list-style: none;
   position: relative;
@@ -14,13 +14,37 @@
   margin: 40px 0;
 }
 #food img {
-  width: 250px;
+  width: 350px;
   height: 250px;
   top: 25px;
-  left: -20px;
+  left: -40px;
   position: absolute;
+  border: 1px solid #000;
 }
+#food li .cont_area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
+  margin-left: 35%;
+}
 #food li .cont_area * {
-  margin: 40px 0;
+  margin: 20px 0;
+}
+#food li .cont_area a {
+  background-color: rgba(0, 0, 0, 0.541);
+  color: white;
+  padding: 10px;
+  width: 90px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 200ms ease-in;
+}
+#food li .cont_area a:hover {
+  color: black;
+  background-color: white;
+  border: 1px solid #000;
 }

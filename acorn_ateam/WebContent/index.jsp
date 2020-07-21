@@ -1,31 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>   
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=s, initial-scale=1.0" />
     <title>Acorn Pension</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Home.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Navbar.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/RoomIntroduce.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/RoomCard.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Food.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Footer.css" />
-    
-    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Reset.css?ver=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css?ver=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Navbar.css?ver=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/SideBar.css?ver=1.1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Home.css?ver=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/RoomIntroduce.css?ver=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/RoomCard.css?ver=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Food.css?ver=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Footer.css?ver=1" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Yeon+Sung&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/c0a9fdc19a.js" crossorigin="anonymous"></script>
-    <script defer src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/c0a9fdc19a.js"></script>
+
+    <script defer src="${pageContext.request.contextPath}/assets/js/main.js?ver=1.1"></script>
+     
   </head>
-  
+
   <body class="animate__animated animate__zoomIn animate__delay-0.3s">
-  	<jsp:include page="pages/templates/nav.jsp"></jsp:include>
+    <jsp:include page="pages/templates/nav.jsp"></jsp:include>
 
-
+    <!-- sideBar -->
+    <aside id="sideBar">
+      <div class="container">
+        <ul>
+          <li><i class="fas fa-book"></i><br /></li>
+          <li><i class="far fa-calendar-alt"></i><br /></li>
+          <li><i class="fas fa-clipboard-list"></i><br /></li>
+        </ul>
+      </div>
+    </aside>
 
     <!--Home-->
     <main id="home">
@@ -42,6 +52,7 @@
       </div>
     </main>
 
+    <!-- roomIntroduce -->
     <section id="roomIntroduce" class="section">
       <div class="container">
         <div class="room__rows">
@@ -63,8 +74,12 @@
       </div>
     </section>
 
+    <!-- roomCard -->
     <section id="roomCard" class="section">
-      <h1>Room Information</h1>
+      <div class="__title">
+        <h1>Room Information</h1>
+        <div class="__title__line animate__animated animate__pulse animate__infinite"></div>
+      </div>
       <div class="container">
         <div id="roomCard_content" class="content__area">
           <div class="content__area__row">
@@ -75,17 +90,17 @@
           </div>
           <div class="content__area__row">
             <h5>스타일</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5 id="roomInfo__floor">카페형</h5>
           </div>
           <div class="content__area__row">
             <h5>인원(최대)</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5 id="roomInfo__Capacity">30명</h5>
           </div>
           <div class="content__area__row">
             <h5>크기</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5 id="roomInfo__Size">51평형</h5>
           </div>
           <div class="content__area__row">
@@ -108,9 +123,12 @@
         </div>
       </div>
     </section>
-    
+    <!-- food -->
     <section id="food" class="section">
-      <h1>Food</h1>
+      <div class="__title">
+        <h1>Food</h1>
+        <div class="__title__line animate__animated animate__pulse animate__infinite"></div>
+      </div>
       <ul class="list__area">
         <li>
           <div class="thum">
@@ -121,13 +139,14 @@
           <div class="cont_area">
             <i>
               <span>#</span>
-              "1. 역전우동"
+
+              역전우동
             </i>
-            <h4>따뜻한 국물이 일품인 백종원의 역전우동 ::after == $0</h4>
+            <h4>따뜻한 국물이 일품인 백종원의 역전우동</h4>
             <div class="cont">
               "어쩌구 저쩌구 튀김우동 존맛탱이라고~"
             </div>
-            <a href="#">Find</a>
+            <a href="#">➡Find</a>
           </div>
         </li>
         <li>
@@ -139,18 +158,19 @@
           <div class="cont_area">
             <i>
               <span>#</span>
-              "2. 오마리식당"
+              오마리식당
             </i>
             <h4>오미라 머시기</h4>
             <div class="cont">
               "어쩌구 저쩌구 한식뷔페입니다"
             </div>
-            <a href="#">Find</a>
+            <a href="#">➡Find</a>
           </div>
         </li>
       </ul>
     </section>
 
+    <!-- footer -->
     <footer id="footer">
       <div class="section">
         <div class="container">
@@ -159,9 +179,9 @@
           </div>
           <div class="footer__row">
             <h5>이용약관</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5>개인정보 처리방침</h5>
-            <div class="devider"></div>
+            <div class="divider"></div>
             <h5>사업자정보확인</h5>
           </div>
           <div class="footer__row">
@@ -186,14 +206,3 @@
     </footer>
   </body>
 </html>
-
-
-
-
-<body class="landing-page sidebar-collapse">
-	
-	<jsp:include page="pages/templates/header.jsp"></jsp:include>
-	<main>
-	</main>
-	<jsp:include page="pages/templates/footer.jsp"></jsp:include>
-</body>
