@@ -11,11 +11,13 @@ public class BoardDto {
 	private int board_up;
 	private int board_down;
 	private String board_date;
+	private int StartRowNum;
+	private int EndRowNum;
 	
 	public BoardDto() {}
 
 	public BoardDto(int board_num, String users_id, String board_title, String board_content, int board_view,
-			int board_comment_count, int board_up, int board_down, String board_date) {
+			int board_comment_count, int board_up, int board_down, String board_date, int startRowNum, int endRowNum) {
 		super();
 		this.board_num = board_num;
 		this.users_id = users_id;
@@ -26,6 +28,8 @@ public class BoardDto {
 		this.board_up = board_up;
 		this.board_down = board_down;
 		this.board_date = board_date;
+		this.StartRowNum = startRowNum;
+		this.EndRowNum = endRowNum;
 	}
 
 	public int getBoard_num() {
@@ -98,6 +102,22 @@ public class BoardDto {
 
 	public void setBoard_date(String board_date) {
 		this.board_date = board_date;
+	}
+
+	public int getStartRowNum() {
+		return StartRowNum;
+	}
+
+	public void setStartRowNum(int startRowNum) {
+		this.StartRowNum = startRowNum;
+	}
+
+	public int getEndRowNum() {
+		return EndRowNum;
+	}
+
+	public void setEndRowNum(int endRowNum) {
+		this.EndRowNum = endRowNum;
 	}
 	
 }
