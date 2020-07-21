@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="./assets/css/Reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/Navbar.css" />
+    <link rel="stylesheet" href="./assets/css/SideBar.css" />
     <link rel="stylesheet" href="./assets/css/Home.css" />
-    <link rel="stylesheet" href="./assets/css/RoomCard.css" />
     <link rel="stylesheet" href="./assets/css/RoomIntroduce.css" />
+    <link rel="stylesheet" href="./assets/css/RoomCard.css" />
     <link rel="stylesheet" href="./assets/css/Food.css" />
     <link rel="stylesheet" href="./assets/css/Footer.css" />
 
@@ -20,7 +21,7 @@
     <script defer src="./assets/js/main.js"></script>
   </head>
   <body class="animate__animated animate__zoomIn animate__delay-0.3s">
-    <!-- Navbar -->
+    <!-- navBar -->
     <nav id="navbar" class="">
       <div class="navbar__logo">
         <a href="#">ACORN PENSION</a>
@@ -63,6 +64,16 @@
         <i class="fas fa-bars"></i>
       </button>
     </nav>
+    <!-- sideBar -->
+    <aside id="sideBar">
+      <div class="container">
+        <ul>
+          <li><i class="fas fa-book"></i><br /></li>
+          <li><i class="far fa-calendar-alt"></i><br /></li>
+          <li><i class="fas fa-clipboard-list"></i><br /></li>
+        </ul>
+      </div>
+    </aside>
 
     <!--Home-->
     <main id="home">
@@ -79,6 +90,7 @@
       </div>
     </main>
 
+    <!-- roomIntroduce -->
     <section id="roomIntroduce" class="section">
       <div class="container">
         <div class="room__rows">
@@ -100,10 +112,11 @@
       </div>
     </section>
 
+    <!-- roomCard -->
     <section id="roomCard" class="section">
-      <div class="roomCard__title">
+      <div class="__title">
         <h1>Room Information</h1>
-        <div class="roomCard__line animate__animated animate__pulse animate__infinite"></div>
+        <div class="__title__line animate__animated animate__pulse animate__infinite"></div>
       </div>
 
       <div class="container">
@@ -150,8 +163,12 @@
       </div>
     </section>
 
+    <!-- food -->
     <section id="food" class="section">
-      <h1>Food</h1>
+      <div class="__title">
+        <h1>Food</h1>
+        <div class="__title__line animate__animated animate__pulse animate__infinite"></div>
+      </div>
       <ul class="list__area">
         <li>
           <div class="thum">
@@ -162,13 +179,13 @@
           <div class="cont_area">
             <i>
               <span>#</span>
-              "1. 역전우동"
+              역전우동
             </i>
-            <h4>따뜻한 국물이 일품인 백종원의 역전우동 ::after == $0</h4>
+            <h4>따뜻한 국물이 일품인 백종원의 역전우동</h4>
             <div class="cont">
               "어쩌구 저쩌구 튀김우동 존맛탱이라고~"
             </div>
-            <a href="#">Find</a>
+            <a href="#">➡Find</a>
           </div>
         </li>
         <li>
@@ -180,18 +197,19 @@
           <div class="cont_area">
             <i>
               <span>#</span>
-              "2. 오마리식당"
+              오마리식당
             </i>
             <h4>오미라 머시기</h4>
             <div class="cont">
               "어쩌구 저쩌구 한식뷔페입니다"
             </div>
-            <a href="#">Find</a>
+            <a href="#">➡Find</a>
           </div>
         </li>
       </ul>
     </section>
 
+    <!-- footer -->
     <footer id="footer">
       <div class="section">
         <div class="container">
