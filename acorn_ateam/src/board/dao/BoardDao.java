@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import board.dto.*;
 import app.util.*;
+
 public class BoardDao {
 	private static BoardDao dao;
 	private BoardDao() {}
@@ -20,8 +20,8 @@ public class BoardDao {
 		return dao;
 	}
 	
-	//return 글 목록
-	public List<BoardDto> getListofReviews() {
+	//return 글 목록 (+페이징)
+	public List<BoardDto> getListofReviews(BoardDto dto) {
 		
 		List<BoardDto> list = new ArrayList<>();
 		
@@ -34,34 +34,37 @@ public class BoardDao {
 			//Connection 객체의 참조값 얻어오기 
 			conn = new DbcpBean().getConn();
 			
-			//실행할 sql 문 준비하기
-			//글 내용을 제외한 모든 요소, 작성일 기준으로 desc
-			String sql = "select board_num, users_id, board_title,"
+			//실행할 sql 문 준비하기 (글 내용을 제외한 모든 요소, 글번호 기준으로 desc)
+			String sql = "SELECT * from (select result1.*, rownum as rnum"
+					+ " from (select board_num, users_id, board_title,"
 					+ " board_view, board_comment_count, board_up, board_down,"
 					+ " to_char(board_date, 'yy/mm/dd hh24:mi') as board_date"
-					+ " from tb_board"
-					+ " order by board_num desc";
+					+ " from tb_board order by board_num desc) result1)"
+					+ " where rnum between ? and ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			
 			//sql 문에 ? 에 바인딩 
+			pstmt.setInt(1, dto.getStartRowNum());
+			pstmt.setInt(2, dto.getEndRowNum());
 			
 			//select 문 수행하고 결과 받아오기 
 			rs = pstmt.executeQuery();
 			
 			//반복문 돌면서 결과 값 추출하기 
 			while(rs.next()) {
-				BoardDto dto = new BoardDto();
-				dto.setBoard_num(rs.getInt("board_num"));
-				dto.setUsers_id(rs.getString("users_id"));
-				dto.setBoard_title(rs.getString("board_title"));
-				dto.setBoard_view(rs.getInt("board_view"));
-				dto.setBoard_comment_count(rs.getInt("board_comment_count"));
-				dto.setBoard_up(rs.getInt("board_up"));
-				dto.setBoard_down(rs.getInt("board_down"));
-				dto.setBoard_date(rs.getString("board_date"));
+				BoardDto tmp = new BoardDto();
 				
-				list.add(dto);
+				tmp.setBoard_num(rs.getInt("board_num"));
+				tmp.setUsers_id(rs.getString("users_id"));
+				tmp.setBoard_title(rs.getString("board_title"));
+				tmp.setBoard_view(rs.getInt("board_view"));
+				tmp.setBoard_comment_count(rs.getInt("board_comment_count"));
+				tmp.setBoard_up(rs.getInt("board_up"));
+				tmp.setBoard_down(rs.getInt("board_down"));
+				tmp.setBoard_date(rs.getString("board_date"));
+				
+				list.add(tmp);
 				
 			}
 		} catch (Exception e) {
@@ -80,6 +83,47 @@ public class BoardDao {
 		return list;
 		}
 
+	//return 전체 글 갯수
+	public int getCount() {
+		//전체 row의 갯수를 담을 지역변수
+		int count=0;
+
+		//필요한 객체의 참조값을 담을 지역변수 만들기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection Pool에서 Connection 객체를 하나 가지고 온다.
+			conn = new DbcpBean().getConn();
+
+			//실행할 sql 문 준비하기
+			String sql = "select NVL(max(ROWNUM), 0) as num"
+					+ " from tb_board";
+			pstmt = conn.prepareStatement(sql);
+
+			//select문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+
+			//반복문 돌면서 결과 값 추출하기
+			if (rs.next()) {
+				count=rs.getInt("num");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close(); //Connection반납
+			} catch (Exception e) {
+			}
+		}
+		return count;
+	}
+	
 	//return 글
 	public BoardDto getReview(int board_num) {
 		
@@ -262,5 +306,4 @@ public class BoardDao {
 			return false;
 		}
 	}
-	
 }//BoardDao

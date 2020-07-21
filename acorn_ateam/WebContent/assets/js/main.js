@@ -34,7 +34,6 @@ const navbarHeight = navbar.getBoundingClientRect().height;
 const homeCup = document.getElementById("home__cup");
 //사이드바 관련 변수
 const sideBar = document.getElementById("sideBar");
-
 let angle = 0;
 document.addEventListener("scroll", () => {
   angle = (angle + 60) % 36000;

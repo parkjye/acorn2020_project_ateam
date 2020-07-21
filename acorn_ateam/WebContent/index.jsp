@@ -80,7 +80,6 @@
         <h1>Room Information</h1>
         <div class="__title__line animate__animated animate__pulse animate__infinite"></div>
       </div>
-
       <div class="container">
         <div id="roomCard_content" class="content__area">
           <div class="content__area__row">
@@ -124,7 +123,6 @@
         </div>
       </div>
     </section>
-
     <!-- food -->
     <section id="food" class="section">
       <div class="__title">
@@ -141,6 +139,7 @@
           <div class="cont_area">
             <i>
               <span>#</span>
+
               역전우동
             </i>
             <h4>따뜻한 국물이 일품인 백종원의 역전우동</h4>
