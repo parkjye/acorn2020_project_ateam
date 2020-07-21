@@ -1,11 +1,10 @@
 function hoverClassImg() {
   document.documentElement.querySelectorAll(".room__rows").forEach((item, index) => {
-    // console.log(item);
     item.addEventListener("mouseover", floatingTitle);
     item.addEventListener("mouseout", hiddenTitle);
   });
 }
-
+//
 function floatingTitle(e) {
   let title = e.target;
   if (e.target.nodeName === "IMG") {
@@ -33,6 +32,9 @@ function hiddenTitle(e) {
 const navbar = document.getElementById("navbar");
 const navbarHeight = navbar.getBoundingClientRect().height;
 const homeCup = document.getElementById("home__cup");
+//사이드바 관련 변수
+const sideBar = document.getElementById("sideBar");
+
 let angle = 0;
 document.addEventListener("scroll", () => {
   angle = (angle + 60) % 36000;
@@ -40,7 +42,11 @@ document.addEventListener("scroll", () => {
 
   let y = window.scrollY;
   if (y > navbarHeight) {
+    sideBar.classList.remove("hidden");
+    
+    sideBar.classList.add("view");
     navbar.classList.add("navbar--dark");
+
     document.querySelector(".navbar__logo").childNodes[1].classList.add("white");
 
     const a = document.querySelectorAll(".navbar__menu__item").forEach((item) => {
@@ -49,6 +55,8 @@ document.addEventListener("scroll", () => {
       item.childNodes[1].childNodes[4].classList.add("white");
     });
   } else {
+    sideBar.classList.remove("view");
+    sideBar.classList.add("hidden");
     navbar.classList.remove("navbar--dark");
     document.querySelector(".navbar__logo").childNodes[1].classList.remove("white");
 
@@ -59,6 +67,8 @@ document.addEventListener("scroll", () => {
     });
   }
 });
+
+// 스크롤시 부드러운 움직임.
 function scrollTo(element, dir) {
   if (dir == "up") {
     dir = element.offsetTop;

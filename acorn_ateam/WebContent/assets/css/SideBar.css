@@ -1,0 +1,49 @@
+#sideBar {
+  position: fixed;
+  right: 0;
+  top: 50%;
+}
+
+#sideBar li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 50px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.541);
+  margin: 2px 0;
+  border: 1px solid #000;
+}
+
+#sideBar li:hover {
+  cursor: pointer;
+  background-color: orange;
+  transition: all 350ms ease-in-out;
+}
+
+#sideBar.view {
+  display: block;
+  animation: sideBarView 350ms forwards;
+}
+#sideBar.hidden {
+  animation: sideBarHidden 350ms forwards;
+}
+
+@keyframes sideBarView {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    
+  }
+}
+@keyframes sideBarHidden {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
