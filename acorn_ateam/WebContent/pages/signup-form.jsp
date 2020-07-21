@@ -42,7 +42,7 @@
 			<input type="text" name="email" id="email" />
 		</div>
 		<div class="form-group">
-			<label for="phone">이메일</label>
+			<label for="phone">휴대폰</label>
 			<input type="text" name="phone" id="phone" />
 		</div>
 		<button type="submit">회원가입</button>
@@ -50,6 +50,5 @@
 	</form>
 </div>
 	
-</script>
 </body>
 </html>
