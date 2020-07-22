@@ -110,7 +110,7 @@
 							<td><%=tmp.getBoard_date() %></td>
 	
 							<td><%=tmp.getUsers_id() %></td>
-							<td><%=tmp.getBoard_title() %></td>
+							<td><a href="review-detail.jsp?num=<%=tmp.getBoard_num() %>"><%=tmp.getBoard_title() %></a></td>
 	
 							<td><%=tmp.getBoard_view() %></td>
 							<td><%=tmp.getBoard_comment_count() %></td>

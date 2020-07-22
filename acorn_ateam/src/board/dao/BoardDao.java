@@ -139,7 +139,8 @@ public class BoardDao {
 			conn = new DbcpBean().getConn();
 
 			//실행할 sql 문 준비하기
-			String sql = "select users_id, board_title, board_content"
+			String sql = "select board_num, users_id, board_title, board_content,"
+					+ " board_view, board_up, board_down, board_date"
 					+ " from tb_board"
 					+ " where board_num=?";
 
@@ -157,7 +158,11 @@ public class BoardDao {
 				dto.setBoard_num(board_num);
 				dto.setUsers_id(rs.getString("users_id"));
 				dto.setBoard_title(rs.getString("board_title"));
-				dto.setBoard_content(rs.getString("board_content"));				
+				dto.setBoard_content(rs.getString("board_content"));
+				dto.setBoard_view(rs.getInt("board_view"));
+				dto.setBoard_up(rs.getInt("board_up"));
+				dto.setBoard_down(rs.getInt("board_down"));
+				dto.setBoard_date(rs.getString("board_date"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

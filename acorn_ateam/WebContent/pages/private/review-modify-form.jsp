@@ -3,11 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    	/*
-    		NumberFormatException
-    	*/
-    	
-    	//?num=xx
     	int board_num = Integer.parseInt(request.getParameter("board_num"));
 	    String board_title = request.getParameter("board_title");
 		String board_content = request.getParameter("board_content");
