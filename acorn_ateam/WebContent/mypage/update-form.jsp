@@ -1,5 +1,6 @@
-<%@page import="pension.dao.UsersDao"%>
-<%@page import="pension.dto.UsersDto"%>
+
+<%@page import="users.dto.UsersDto"%>
+<%@page import="users.dao.UsersDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

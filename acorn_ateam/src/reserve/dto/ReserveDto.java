@@ -1,28 +1,35 @@
-package pension.dto;
+package reserve.dto;
 
-public class DateDto {
+public class ReserveDto {
+	
+	private int reserve_num;
 	private int date_num;
 	private String date_year;
 	private String date_month;
 	private String date_day;
-	private int date_isUsing;
-	private int date_sale;
-	private int date_holiday;
+	private String users_id;
 	private String room_name;
 	
-	public DateDto() {}
-
-	public DateDto(int date_num, String date_year, String date_month, String date_day, int date_isUsing, int date_sale,
-			int date_holiday, String room_name) {
+	public ReserveDto() {}
+	
+	public ReserveDto(int reserve_num, int date_num, String date_year, String date_month, String date_day,
+			String users_id, String room_name) {
 		super();
+		this.reserve_num = reserve_num;
 		this.date_num = date_num;
 		this.date_year = date_year;
 		this.date_month = date_month;
 		this.date_day = date_day;
-		this.date_isUsing = date_isUsing;
-		this.date_sale = date_sale;
-		this.date_holiday = date_holiday;
+		this.users_id = users_id;
 		this.room_name = room_name;
+	}
+
+	public int getReserve_num() {
+		return reserve_num;
+	}
+
+	public void setReserve_num(int reserve_num) {
+		this.reserve_num = reserve_num;
 	}
 
 	public int getDate_num() {
@@ -57,28 +64,12 @@ public class DateDto {
 		this.date_day = date_day;
 	}
 
-	public int getDate_isUsing() {
-		return date_isUsing;
+	public String getUsers_id() {
+		return users_id;
 	}
 
-	public void setDate_isUsing(int date_isUsing) {
-		this.date_isUsing = date_isUsing;
-	}
-
-	public int getDate_sale() {
-		return date_sale;
-	}
-
-	public void setDate_sale(int date_sale) {
-		this.date_sale = date_sale;
-	}
-
-	public int getDate_holiday() {
-		return date_holiday;
-	}
-
-	public void setDate_holiday(int date_holiday) {
-		this.date_holiday = date_holiday;
+	public void setUsers_id(String users_id) {
+		this.users_id = users_id;
 	}
 
 	public String getRoom_name() {

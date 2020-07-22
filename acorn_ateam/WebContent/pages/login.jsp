@@ -20,9 +20,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	if(isValid){%>
+<%if(isValid){%>
+	<script>
 		location.href="${pageContext.request.contextPath }/index.jsp";
+	</script>
 		<%session.setAttribute("id", id);%>
 <%}else{%>
 	<script>

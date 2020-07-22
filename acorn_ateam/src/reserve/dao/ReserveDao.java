@@ -1,17 +1,17 @@
-package pension.dao;
+package reserve.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import pension.dto.DateDto;
-import pension.dto.ReserveDto;
-import pension.util.DbcpBean;
+import app.util.DbcpBean;
+import date.dto.DateDto;
+import reserve.dto.ReserveDto;
+
 
 public class ReserveDao {
 	private static ReserveDao dao;
 	private ReserveDao() {}
 	
-	// ¾øÀ¸¸é ¸¸µê
 	public static ReserveDao getInstance() {
 		if(dao==null) {
 			dao=new ReserveDao();
@@ -23,39 +23,36 @@ public class ReserveDao {
 		
 		switch(msg){
 		case 1:
-			System.out.println("1¹Ú2ÀÏ");
+			System.out.println("1ï¿½ï¿½2ï¿½ï¿½");
 			break;
 		case 2:
-			System.out.println("2¹Ú3ÀÏ");
+			System.out.println("2ï¿½ï¿½3ï¿½ï¿½");
 			break;
 		case 3:
-			System.out.println("3¹Ú4ÀÏ");
+			System.out.println("3ï¿½ï¿½4ï¿½ï¿½");
 			break;
 		case 4:
-			System.out.println("4¹Ú5ÀÏ");
+			System.out.println("4ï¿½ï¿½5ï¿½ï¿½");
 			break;
 		case 5:
-			System.out.println("5¹Ú6ÀÏ");
+			System.out.println("5ï¿½ï¿½6ï¿½ï¿½");
 			break;
 		case 6:
-			System.out.println("6¹Ú7ÀÏ");
+			System.out.println("6ï¿½ï¿½7ï¿½ï¿½");
 			break;
 		}
 	}
 	
 	
-	// ¿¹¾àÇÏ±â ´­·¶À»¶§ ¿¹¾àµÇ´Â ¸Þ¼Òµå
 	public boolean insert(ReserveDto dto1,DateDto dto2) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int flag = 0;
 		try {
 			conn = new DbcpBean().getConn();
-			// dto1Àº ReserveDto, dto2´Â DateDto 
 			String sql = "insert into tb_reserve(date_num,date_year,date_month,date_day,users_id,room_name)"
 					+ "values(?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			// dto1Àº ReserveDto, dto2´Â DateDto
 			pstmt.setInt(1, dto2.getDate_num());
 			pstmt.setString(2, dto1.getDate_year());
 			pstmt.setString(3, dto1.getDate_month());
@@ -63,7 +60,6 @@ public class ReserveDao {
 			pstmt.setString(5, dto1.getUsers_id());
 			pstmt.setString(6, dto1.getRoom_name());
 			
-			//sql  ¹® ¼öÇàÇÏ°í update or insert or delete µÈ row ÀÇ °¹¼ö ¸®ÅÏ¹Þ±â 
 			flag = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
