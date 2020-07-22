@@ -22,12 +22,22 @@
 <body>
 <%
 	if(isValid){%>
+<<<<<<< HEAD:acorn_ateam/WebContent/log/login.jsp
+	<script>
 		location.href="${pageContext.request.contextPath }/index.jsp";
+	</script>
+=======
+		location.href="${pageContext.request.contextPath }/index.jsp";
+>>>>>>> master:acorn_ateam/WebContent/pages/login.jsp
 		<%session.setAttribute("id", id);%>
 <%}else{%>
 	<script>
 		alert("아이디 혹은 비밀번호가 틀립니다.");
+<<<<<<< HEAD:acorn_ateam/WebContent/log/login.jsp
+		location.href="${pageContext.request.contextPath }/log/login_form.jsp";
+=======
 		location.href="${pageContext.request.contextPath }/log/login-form.jsp"; 
+>>>>>>> master:acorn_ateam/WebContent/pages/login.jsp
 	</script>
 <% }%>
 </body>

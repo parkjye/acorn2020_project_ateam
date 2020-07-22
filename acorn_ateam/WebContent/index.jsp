@@ -20,7 +20,6 @@
     <script src="https://kit.fontawesome.com/c0a9fdc19a.js"></script>
 
     <script defer src="${pageContext.request.contextPath}/assets/js/main.js?ver=1.1"></script>
-     
   </head>
 
   <body class="animate__animated animate__zoomIn animate__delay-0.3s">
