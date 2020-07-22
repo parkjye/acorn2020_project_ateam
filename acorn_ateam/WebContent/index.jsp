@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=s, initial-scale=1.0" />
     <title>Acorn Pension</title>
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Reset.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Navbar.css?v=<%=System.currentTimeMillis() %>" />
@@ -23,10 +25,12 @@
 
     <script defer src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>
     <script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
+
      
   </head>
 
   <body class="animate__animated animate__zoomIn animate__delay-0.3s">
+
     <jsp:include page="pages/templates/nav.jsp"></jsp:include>
 
     <!-- sideBar -->
@@ -209,3 +213,4 @@
     </footer>
   </body>
 </html>
+

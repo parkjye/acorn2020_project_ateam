@@ -3,9 +3,8 @@ package users.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import users.dto.*;
-import app.util.*;
+import app.util.DbcpBean;
+import users.dto.UsersDto;
 
 public class UsersDao {
 
