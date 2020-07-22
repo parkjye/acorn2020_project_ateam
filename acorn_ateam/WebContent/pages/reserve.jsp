@@ -30,8 +30,8 @@
 	dto.setUsers_email(email);
 	
 	boolean isSuccess=UsersDao.getInstance().update(dto);
-*/
-	// ---------------------------------------------
+
+
 	
 	String day1=request.getParameter("1days");
 	String day2=request.getParameter("2days");
@@ -75,7 +75,7 @@
 	}
 	System.out.println("가격 : "+price);
 	
-	
+	*/
 	
 	
 %>	

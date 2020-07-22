@@ -9,11 +9,12 @@ public class ReserveDto {
 	private String date_day;
 	private String users_id;
 	private String room_name;
-	
+	private String users_phone;
+
 	public ReserveDto() {}
 	
 	public ReserveDto(int reserve_num, int date_num, String date_year, String date_month, String date_day,
-			String users_id, String room_name) {
+			String users_id, String room_name, String users_phone) {
 		super();
 		this.reserve_num = reserve_num;
 		this.date_num = date_num;
@@ -22,6 +23,7 @@ public class ReserveDto {
 		this.date_day = date_day;
 		this.users_id = users_id;
 		this.room_name = room_name;
+		this.users_phone = users_phone;
 	}
 
 	public int getReserve_num() {
@@ -80,5 +82,11 @@ public class ReserveDto {
 		this.room_name = room_name;
 	}
 	
-	
+	public String getUsers_phone() {
+		return users_phone;
+	}
+
+	public void setUsers_phone(String users_phone) {
+		this.users_phone = users_phone;
+	}
 }

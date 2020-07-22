@@ -2,6 +2,7 @@ package reserve.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import app.util.DbcpBean;
 import date.dto.DateDto;
@@ -18,31 +19,31 @@ public class ReserveDao {
 		}
 		return dao;
 	}
-	
-	public void switchCase(int msg) {
-		
-		switch(msg){
-		case 1:
-			System.out.println("1ï¿½ï¿½2ï¿½ï¿½");
-			break;
-		case 2:
-			System.out.println("2ï¿½ï¿½3ï¿½ï¿½");
-			break;
-		case 3:
-			System.out.println("3ï¿½ï¿½4ï¿½ï¿½");
-			break;
-		case 4:
-			System.out.println("4ï¿½ï¿½5ï¿½ï¿½");
-			break;
-		case 5:
-			System.out.println("5ï¿½ï¿½6ï¿½ï¿½");
-			break;
-		case 6:
-			System.out.println("6ï¿½ï¿½7ï¿½ï¿½");
-			break;
-		}
-	}
-	
+//	
+//	public void switchCase(int msg) {
+//		
+//		switch(msg){
+//		case 1:
+//			System.out.println("1ï¿½ï¿½2ï¿½ï¿½");
+//			break;
+//		case 2:
+//			System.out.println("2ï¿½ï¿½3ï¿½ï¿½");
+//			break;
+//		case 3:
+//			System.out.println("3ï¿½ï¿½4ï¿½ï¿½");
+//			break;
+//		case 4:
+//			System.out.println("4ï¿½ï¿½5ï¿½ï¿½");
+//			break;
+//		case 5:
+//			System.out.println("5ï¿½ï¿½6ï¿½ï¿½");
+//			break;
+//		case 6:
+//			System.out.println("6ï¿½ï¿½7ï¿½ï¿½");
+//			break;
+//		}
+//	}
+//	
 	
 	public boolean insert(ReserveDto dto1,DateDto dto2) {
 		Connection conn = null;
@@ -78,4 +79,94 @@ public class ReserveDao {
 			return false;
 		}
 	}
+	
+	// reserve.jsp -> date_num °¡Á®¿À´Â ¸Ş¼Òµå
+	public int getDateNum() {
+		//ÇÊ¿äÇÑ °´Ã¼ÀÇ ÂüÁ¶°ªÀ» ´ãÀ» Áö¿ªº¯¼ö ¸¸µé±â 
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int date_num = 0;
+		
+		try {
+			//Connection °´Ã¼ÀÇ ÂüÁ¶°ª ¾ò¾î¿À±â 
+			conn = new DbcpBean().getConn();
+			//½ÇÇàÇÒ sql ¹® ÁØºñÇÏ±â
+			String sql = "select date_num "
+						+" from tb_date "; // where Àı¿¡ ¹» ³Ö¾î¾ß ÇÒ±î¿ä ¤Ğ¤Ğ
+			pstmt = conn.prepareStatement(sql);
+			//sql ¹®¿¡ ? ¿¡ ¹ÙÀÎµùÇÒ °ªÀÌ ÀÖÀ¸¸é ¹ÙÀÎµùÇÏ°í 
+				//select ¹® ¼öÇàÇÏ°í °á°ú ¹Ş¾Æ¿À±â 
+			rs = pstmt.executeQuery();
+			//¹İº¹¹® µ¹¸é¼­ °á°ú °ª ÃßÃâÇÏ±â 
+			if (rs.next()) {
+				date_num=Integer.parseInt(rs.getString("date_num"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return date_num;
+	}
+	
+	// ¸¶ÀÌÆäÀÌÁö -> ³» ¿¹¾à ÇöÈ² º¸±â ÇßÀ»¶§ Å×ÀÌºí Á¶È¸ÇÏ´Â ¸Ş¼Òµå
+	public ReserveDto myReservation(String users_id) {
+			// dto ºñ¿ö³õ±â
+		ReserveDto dto=null;
+		
+		//ÇÊ¿äÇÑ °´Ã¼ÀÇ ÂüÁ¶°ªÀ» ´ãÀ» Áö¿ªº¯¼ö ¸¸µé±â 
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection °´Ã¼ÀÇ ÂüÁ¶°ª ¾ò¾î¿À±â 
+			conn = new DbcpBean().getConn();
+			//½ÇÇàÇÒ sql ¹® ÁØºñÇÏ±â
+			String sql = "select tb_reserve.users_id,date_year,date_month,date_day,room_name, " // ¾ÆÀÌµğ,³¯Â¥,¹æÀÌ¸§ ( tb_reserve Å×ÀÌºí)
+						+" users_phone " // ÇÚµåÆù ¹øÈ£ ( tb_users Å×ÀÌºí )
+						+" from tb_reserve,tb_users"
+						+" where tb_reserve.users_id=? "
+						+" and tb_users.users_id=tb_reserve.users_id;";			
+			
+			pstmt = conn.prepareStatement(sql);
+			//sql ¹®¿¡ ? ¿¡ ¹ÙÀÎµùÇÒ °ªÀÌ ÀÖÀ¸¸é ¹ÙÀÎµùÇÏ°í 
+			pstmt.setString(1, users_id);
+			//select ¹® ¼öÇàÇÏ°í °á°ú ¹Ş¾Æ¿À±â 
+			rs = pstmt.executeQuery();
+			//¹İº¹¹® µ¹¸é¼­ °á°ú °ª ÃßÃâÇÏ±â 
+			if (rs.next()) {
+				dto=new ReserveDto();
+				dto.setUsers_id(users_id);
+				dto.setDate_year(rs.getString("date_year"));
+				dto.setDate_month(rs.getString("date_month"));
+				dto.setDate_day(rs.getString("date_day"));
+				dto.setRoom_name(rs.getString("room_name"));
+				dto.setUsers_phone(rs.getString("users_phone"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return dto;
+	}
+	
 }
