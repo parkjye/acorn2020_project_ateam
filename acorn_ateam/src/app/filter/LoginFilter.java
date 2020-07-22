@@ -29,7 +29,7 @@ public class LoginFilter implements Filter{
 		HttpSession session = req.getSession();
 		
 		//3. 로그인된 아이디가 있는지 얻어와본다.
-		String users_id = (String)session.getAttribute("users_id");
+		String users_id = (String)session.getAttribute("id");
 		
 		if(users_id != null) { //로그인
 			chain.doFilter(request, response);
