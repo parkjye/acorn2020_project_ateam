@@ -4,16 +4,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String id=(String)session.getAttribute("id");
-	String pwd=request.getParameter("pwd");
-	String phone=request.getParameter("phone");
-	String email=request.getParameter("email");
+	String users_id=(String)session.getAttribute("users_id");
+	String users_pwd=request.getParameter("users_pwd");
+	String users_phone=request.getParameter("users_phone");
+	String users_email=request.getParameter("users_email");
 	
 	UsersDto dto=new UsersDto();
-	dto.setUsers_id(id);
-	dto.setUsers_pwd(pwd);
-	dto.setUsers_phone(phone);
-	dto.setUsers_email(email);
+	dto.setUsers_id(users_id);
+	dto.setUsers_pwd(users_pwd);
+	dto.setUsers_phone(users_phone);
+	dto.setUsers_email(users_email);
 	
 	boolean isSuccess=UsersDao.getInstance().update(dto);
 %>

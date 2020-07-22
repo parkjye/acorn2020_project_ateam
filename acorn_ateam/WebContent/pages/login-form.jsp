@@ -37,10 +37,10 @@ margin: auto 0;
       <div class="login__container__wrapper">
         <form action="login.jsp" method="post">
           <div class="form-group">
-            <input type="text" name="id" id="id" placeholder="id" />
+            <input type="text" name="users_id" id="users_id" placeholder="id" />
           </div>
           <div class="form-group">
-            <input type="password" name="pwd" id="pwd" placeholder="pwd" />
+            <input type="password" name="users_pwd" id="users_pwd" placeholder="pwd" />
           </div>
           <input class="login__submit" type="submit" value="로그인" />
         </form>

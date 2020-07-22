@@ -9,7 +9,7 @@
 <body>
 <div class="wrap">
 	<div class="content">
-		<form action="write-review.jsp" method="post">
+		<form action="review-write.jsp" method="post">
 			<label for="board_title">제목</label>
 			<input type="text" name="board_title" id="board_title"/>
 

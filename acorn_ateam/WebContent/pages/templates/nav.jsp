@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <% %>
 <%
-String id = (String)session.getAttribute("id");
-System.out.println(id);
+String users_id = (String)session.getAttribute("users_id");
+System.out.println(users_id);
 
-boolean isLogged = (id == null) ? false :true;
+boolean isLogged = (users_id == null) ? false :true;
 System.out.println(isLogged);
 
 %>
@@ -33,23 +33,30 @@ System.out.println(isLogged);
       </a>
     </li>
     <li class="navbar__menu__item" data-link="#login">
-    <%if(isLogged){ %>
-       <a href="${pageContext.request.contextPath}/pages/private/logout.jsp">
-        <i class="fas fa-sign-in-alt"></i><br />
-        <span>로그아웃</span>
-      </a>
-    <%}else{ %>
-       <a href="${pageContext.request.contextPath}/pages/login-form.jsp">
-        <i class="fas fa-sign-in-alt"></i><br />
-        <span>로그인</span>
-      </a>
-    <%} %>
+	    <%if(isLogged){ %>
+	       <a href="${pageContext.request.contextPath}/pages/private/logout.jsp">
+	        <i class="fas fa-sign-in-alt"></i><br />
+	        <span>로그아웃</span>
+	      </a>
+	    <%}else{ %>
+	       <a href="${pageContext.request.contextPath}/pages/login-form.jsp">
+	        <i class="fas fa-sign-in-alt"></i><br />
+	        <span>로그인</span>
+	      </a>
+	    <%} %>
     </li>
     <li class="navbar__menu__item" data-link="#signup">
-      <a href="${pageContext.request.contextPath}/pages/signup-form.jsp">
-        <i class="fas fa-user-plus"></i><br />
-        <span>회원가입</span>
-      </a>
+	     <%if(isLogged){ %>
+	       <a href="${pageContext.request.contextPath}/pages/private/mypages/main.jsp">
+	        <i class="fas fa-sign-in-alt"></i><br />
+	        <span>마이페이지</span>
+	      </a>
+	    <%}else{ %>
+	       <a href="${pageContext.request.contextPath}/pages/signup-form.jsp">
+	        <i class="fas fa-sign-in-alt"></i><br />
+	        <span>회원가입</span>
+	      </a>
+	    <%} %>
     </li>
   </ul>
   <button class="navbar__toggle-btn">
