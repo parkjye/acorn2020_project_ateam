@@ -4,12 +4,13 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  background-color: var(--color-pink);
   align-items: center;
-  color: var(--color-black);
+  /* color: var(--color-black); */
+  /* color: green; */
   padding: 16px;
-  background-color: transparent;
+  background-color: #f6f0e4;
   transition: all var(--animation-duration) ease-in-out;
+
   z-index: 5;
 }
 #navbar.navbar--dark {
@@ -47,7 +48,7 @@
 }
 .navbar__menu__item a {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -63,7 +64,7 @@
   border-color: var(--color-black);
 }
 .white {
-  color: white;
+  color: #f6f0e4;
 }
 .white:hover {
   border-color: white;

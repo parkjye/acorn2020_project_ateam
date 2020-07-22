@@ -1,19 +1,12 @@
 #home {
-  background: rgb(242, 240, 42);
-  background: radial-gradient(
-    circle,
-    rgba(242, 240, 42, 0.8491771708683473) 0%,
-    rgba(218, 206, 28, 1) 44%,
-    rgba(232, 204, 13, 1) 68%,
-    rgba(241, 216, 46, 1) 83%
-  );
-
+  background-image: url(../images/home2.jpg);
+  -webkit-filter: grayscale(50%);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   padding: 40px;
   padding-top: 100px;
   text-align: center;
-  box-shadow: 0px 46px 74px -10px rgba(235, 235, 89, 0.75);
 }
 #home .home__container {
   background-color: rgba(92, 92, 92, 0.096);
