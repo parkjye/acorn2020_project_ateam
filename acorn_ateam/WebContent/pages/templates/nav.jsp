@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <% %>
+<%
+String id = (String)session.getAttribute("id");
+boolean isLogged = (id == null) ? false :true;
 
+%>
 <!-- Navbar -->
 <nav id="navbar" class="">
   <div class="navbar__logo">
     <a href="${pageContext.request.contextPath}/index.jsp">ACORN PENSION</a>
-
     <img id="home__cup" src="${pageContext.request.contextPath}/assets/images/cup.png" alt="cup" />
   </div>
   <ul class="navbar__menu">
@@ -27,10 +30,17 @@
       </a>
     </li>
     <li class="navbar__menu__item" data-link="#login">
-      <a href="${pageContext.request.contextPath}/pages/login-form.jsp">
+    <%if(isLogged){ %>
+       <a href="${pageContext.request.contextPath}/pages/login-form.jsp">
         <i class="fas fa-sign-in-alt"></i><br />
         <span>로그인</span>
       </a>
+    <%}else{ %>
+       <a href="${pageContext.request.contextPath}/pages/private/logout.jsp">
+        <i class="fas fa-sign-in-alt"></i><br />
+        <span>로그아웃</span>
+      </a>
+    <%} %>
     </li>
     <li class="navbar__menu__item" data-link="#signup">
       <a href="${pageContext.request.contextPath}/pages/signup-form.jsp">
@@ -43,3 +53,6 @@
     <i class="fas fa-bars"></i>
   </button>
 </nav>
+<div class="main"></div>
+
+

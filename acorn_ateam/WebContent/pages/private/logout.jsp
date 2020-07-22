@@ -2,17 +2,6 @@
     pageEncoding="UTF-8"%>
 <%
 	session.invalidate();
+	String cpath = request.getContextPath();
+	response.sendRedirect(cpath+"/index.jsp");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<script>
-	alert("로그아웃 되었습니다.");
-	location.href="${pageContext.request.contextPath }/index.jsp";
-</script>
-</body>
-</html>

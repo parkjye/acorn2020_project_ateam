@@ -83,7 +83,7 @@
 <body>
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	
-	<section class="reivews__main"> 
+	
 		<%if(users_id != null) {%>
 		<button onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">글쓰기</button>
 		<%} %>
@@ -139,6 +139,5 @@
 				</ul>
 			</div>
 		</div><!-- tableWrap -->
-	</section>
 </body>
 </html>
