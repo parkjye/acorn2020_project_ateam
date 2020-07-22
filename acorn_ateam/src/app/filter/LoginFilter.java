@@ -30,7 +30,7 @@ public class LoginFilter implements Filter{
 		
 		//3. 로그인된 아이디가 있는지 얻어와본다.
 		String users_id = (String)session.getAttribute("id");
-		
+		System.out.println(users_id);
 		if(users_id != null) { //로그인
 			chain.doFilter(request, response);
 		}else { //로그인 폼으로 redirect
