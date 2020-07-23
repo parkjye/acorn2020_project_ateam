@@ -46,5 +46,30 @@
         </form>
       </div>
     </div>
+    <script>
+	function formTest(){
+	    var test = document.signup;
+	    if(test.id.value==""){
+	        alert("아이디를 입력하세요");
+	        test.id.focus();
+	        return false;
+	    }
+	    if(test.pwd.value==""){
+	        alert("비밀번호를 입력하세요");
+	        test.pwd.focus();
+	        return false;
+	    }
+	    if(test.email.value == ""){
+	        alert("이메일을 입력해주세요");
+	        test.email.focus();
+	        return false;
+	    }
+	    if(test.phone.value == ""){
+	        alert("휴대폰 번호를 입력해주세요.");
+	        test.phone.focus();
+	        return false;
+	    }
+	}
+	</script>
   </body>
 </html>

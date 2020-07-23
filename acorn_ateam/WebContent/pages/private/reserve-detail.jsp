@@ -40,7 +40,7 @@
 						</select>
 					</td>
 					<td>200,000원</td>
-					<td><input type="checkbox" name="check" value="1" /></td>
+					<td><input type="checkbox" name="check" value="1번방" /></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="room_name" value="2 강의실"  /></td>
@@ -56,7 +56,7 @@
 						</select>
 					</td>
 					<td>200,000원</td>
-					<td><input type="checkbox" name="check" value="2" /></td>
+					<td><input type="checkbox" name="check" value="2번방" /></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="room_name" value="3 강의실"  /></td>
@@ -72,7 +72,7 @@
 						</select>
 					</td>
 					<td>200,000원</td>
-					<td><input type="checkbox" name="check" value="3"  /></td>
+					<td><input type="checkbox" name="check" value="3번방"  /></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="room_name" value="4 강의실"  /></td>
@@ -88,7 +88,7 @@
 						</select>
 					</td>
 					<td>200,000원</td>
-					<td><input type="checkbox" name="check" value="4" /></td>
+					<td><input type="checkbox" name="check" value="4번방" /></td>
 				</tr>
 			</tbody>
 		</table>
