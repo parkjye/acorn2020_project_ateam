@@ -21,7 +21,7 @@ System.out.println(isLogged);
       </a>
     </li>
     <li class="navbar__menu__item" data-link="#reserve">
-      <a href="${pageContext.request.contextPath}/pages/reserve.jsp">
+      <a href="${pageContext.request.contextPath}/pages/reserve-calender.jsp">
         <i class="far fa-calendar-alt"></i><br />
         <span>예약하기</span>
       </a>

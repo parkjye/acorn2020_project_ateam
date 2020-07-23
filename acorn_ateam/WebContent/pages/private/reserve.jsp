@@ -108,7 +108,7 @@
 
 
 <body>
-  	<jsp:include page="templates/nav.jsp"></jsp:include>
+
   	
   	
   	<script>
@@ -118,9 +118,9 @@
 	
 		if(result){
 			alert("예약되었습니다.");
-			location.href="${pageContext.request.contextPath }/index.jsp";
+			location.href="${pageContext.request.contextPath}/index.jsp";
 		}else{
-			location.href="${pageContext.request.contextPath }/reserve-detail.jsp";
+			location.href="./reserve-detail.jsp";
 		}
 	</script>
 </body>
