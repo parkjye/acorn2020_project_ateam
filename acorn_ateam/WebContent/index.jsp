@@ -44,15 +44,21 @@
     <!--Home-->
     <main id="home" class="main">
       <div class="home__container">
-        <h1 class="home__title">
-          여기다가 뭐라고 쓸까요
-        </h1>
-        <h2 class="home__description">
-          무슨말이 어울려요
-        </h2>
-      </div>
-      <div id="home__arrow" class="animate__animated animate__slideInDown animate__infinite">
-        <i class="fas fa-arrow-down"></i>
+        <div class="home__container__info">
+          <h1 class="home__title">
+            여기다가 뭐라고 쓸까요
+          </h1>
+          <h2 class="home__description">
+            무슨말이 어울려요
+          </h2>
+          <div id="home__arrow" class="animate__animated animate__slideInDown animate__infinite">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+        </div>
+        <div class="home__container__card">
+          <h1>이야</h1>
+          <h2>이야</h2>
+        </div>
       </div>
     </main>
 

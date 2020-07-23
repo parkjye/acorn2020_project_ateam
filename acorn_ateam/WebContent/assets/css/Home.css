@@ -4,18 +4,21 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  padding: 40px;
-  padding-top: 100px;
+  /* padding: 40px; */
+  /* padding-top: 100px; */
+  height: 100vh;
   text-align: center;
 }
 #home .home__container {
-  background-color: rgba(92, 92, 92, 0.096);
-  border-radius: 30px;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: inherit;
+  display: grid;
+  top: 0;
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  column-gap: 50px;
+}
+#home .home__container__info {
+  grid-column: 1/4;
+  margin: auto 0;
 }
 #home__arrow {
   margin-top: 40px;
