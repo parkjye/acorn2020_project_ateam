@@ -282,7 +282,7 @@ public class BoardDao {
 			conn = new DbcpBean().getConn();
 
 			String sql = "update tb_board"
-					+ " set board_title=?, board_content=?"
+					+ " set board_title=null, board_content=?"
 					+ " where board_num=?";
 
 			pstmt = conn.prepareStatement(sql);
