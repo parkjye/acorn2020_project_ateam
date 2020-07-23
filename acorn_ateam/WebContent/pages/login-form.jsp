@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Navbar.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/SideBar.css?v=<%=System.currentTimeMillis() %>" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Main.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Login.css?v=<%=System.currentTimeMillis() %>" />
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Footer.css?v=<%=System.currentTimeMillis() %>" />
@@ -19,15 +20,6 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Yeon+Sung&display=swap" rel="stylesheet" /> -->
     <script src="https://kit.fontawesome.com/c0a9fdc19a.js"></script>
     <script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
-
-    <style>
-      .container {
-        /*height: 100%;
-margin: auto 0;
-*/
-        padding-top: 500px;
-      }
-    </style>
   </head>
   <body>
     <jsp:include page="templates/nav.jsp"></jsp:include>
@@ -35,14 +27,17 @@ margin: auto 0;
     <!--로그인 페이지-->
     <div class="login__container">
       <div class="login__container__wrapper">
+        <h3>Wellcome! A 펜션에 오신 것을 환영합니다/</h3>
         <form action="login.jsp" method="post">
           <div class="form-group">
-            <input type="text" name="users_id" id="users_id" placeholder="id" />
+            <input type="text" name="users_id" id="users_id" placeholder="아이디를 입력해주세요" />
           </div>
           <div class="form-group">
-            <input type="password" name="users_pwd" id="users_pwd" placeholder="pwd" />
+            <input type="password" name="users_pwd" id="users_pwd" placeholder="비밀번호를 입력해주세요" />
           </div>
-          <input class="login__submit" type="submit" value="로그인" />
+          <div class="form-group">
+            <button class="login__submit" type="submit">로그인</button>
+          </div>
         </form>
       </div>
     </div>
