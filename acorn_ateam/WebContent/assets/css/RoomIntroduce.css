@@ -1,4 +1,5 @@
 #roomIntroduce .container {
+  padding: 20% 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

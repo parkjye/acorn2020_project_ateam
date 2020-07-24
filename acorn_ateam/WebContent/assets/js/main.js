@@ -18,57 +18,61 @@ function init() {
   });
 }
 
-const roomTitles = ["1.강의실", "2.강의실", "3.강의실", "4.강의실"];
-const roomInfos = ["좋은 구조/좌석30개", "채광이 좋은 구조/좌석30개", "공간이 넓은 구조/좌석30개", "풍경이 좋은 구조/좌석30개"];
-const roomFloors = ["카페형", "사무실형", "도서관형", "야외형"];
-const roomCapacity = ["30명", "25명", "35명", "99명"];
-const roomSize = ["51평형", "48평형", "60평형", "55평형"];
-const roomImges = ["room1", "room2", "room3", "room4"];
-let roomInfoCount = 0;
-const roomInfoMaxCount = 4;
-function roomInfo() {
-  //
-  const content = document.querySelector("#roomCard_content");
+var container = document.getElementById("map");
+var options = {
+  center: new kakao.maps.LatLng(37.4986951, 127.0316076),
+  level: 4,
+};
+var map = new kakao.maps.Map(container, options);
+// 마커가 표시될 위치입니다
+var markerPosition = new kakao.maps.LatLng(37.4986951, 127.0316076);
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+  position: markerPosition,
+});
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
 
-  const leftBtn = document.querySelector("#roomInfo__btn-left");
-  const rightBtn = document.querySelector("#roomInfo__btn-right");
-  const title = document.querySelector("#roomInfo__title");
-  const info = document.querySelector("#roomInfo__info");
-  const floor = document.querySelector("#roomInfo__floor");
-  const capacity = document.querySelector("#roomInfo__Capacity");
-  const size = document.querySelector("#roomInfo__Size");
-  const img = document.querySelector("#roomInfo__img");
-
-  leftBtn.addEventListener("click", () => {
-    roomInfoCount = (roomInfoCount - 1) % roomInfoMaxCount;
-    if (roomInfoCount < 0) roomInfoCount = 3;
-    changeElement(roomInfoCount);
+/* home화면의 이미지 클릭시 동작되는 로직 */
+let homeImg = document.getElementById("home").style.backgroundImage;
+const changeHomeImg = function (e) {
+  if (e.target.nodeName === "IMG") {
+    e.target.parentNode.classList.add("active");
+    const src = e.target.getAttribute("src").split("/");
+    const changeSrc = `${e.target.getAttribute("src")}`;
+    const ss = `url('${changeSrc}')`;
+    document.getElementById("home").style.backgroundImage = ss;
+  }
+};
+const roomCardImg = document.querySelectorAll(".room__rows");
+roomCardImg.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    roomCardImg.forEach((item) => {
+      item.classList.remove("active");
+    });
+    changeHomeImg(e);
   });
-  rightBtn.addEventListener("click", () => {
-    roomInfoCount = (roomInfoCount + 1) % roomInfoMaxCount;
-    changeElement(roomInfoCount);
-  });
+});
 
-  const changeElement = function (roomInfoCount) {
-    if (content.classList.contains("animate__animated")) {
-      content.classList.remove("animate__animated", "animate__zoomIn");
-      img.classList.remove("animate__animated", "animate__zoomIn");
-    }
-
-    setTimeout(animate, 16);
-
-    function animate() {
-      title.innerText = roomTitles[roomInfoCount];
-      info.innerText = roomInfos[roomInfoCount];
-      floor.innerText = roomFloors[roomInfoCount];
-      capacity.innerText = roomCapacity[roomInfoCount];
-      size.innerText = roomCapacity[roomInfoCount];
-      img.src = `./assets/images/${roomImges[roomInfoCount]}.jpg`;
-      content.classList.add("animate__animated", "animate__zoomIn");
-      img.classList.add("animate__animated", "animate__zoomIn");
-    }
-  };
-}
+/*Modal Logic*/
+const whereModal = document.getElementById("whereModal");
+const openWhereModalBtn = document.querySelector(".openWhereModalBtn");
+const overlayModal = document.querySelector(".modal__overaly");
+const closeBtnModal = document.querySelector(".modal__close__btn");
+const openWhereModal = () => {
+  whereModal.classList.remove("hidden");
+  map.relayout(); //모달창에서 카카오맵을 띄우면 리 레이아웃을해줘야함.
+  var moveLatLon = new kakao.maps.LatLng(37.4986951, 127.0316076);
+  // 지도 중심을 이동 시킵니다
+  map.setCenter(moveLatLon);
+};
+const closeModal = () => {
+  whereModal.classList.add("hidden");
+};
+//close Modal
+overlayModal.addEventListener("click", closeModal);
+closeBtnModal.addEventListener("click", closeModal);
+//open Modal
+openWhereModalBtn.addEventListener("click", openWhereModal);
 
 init();
-roomInfo();

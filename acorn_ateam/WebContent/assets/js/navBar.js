@@ -1,33 +1,34 @@
-// nav var관련
-function hoverClassImg() {
-  document.documentElement.querySelectorAll(".room__rows").forEach((item, index) => {
-    item.addEventListener("mouseover", floatingTitle);
-    item.addEventListener("mouseout", hiddenTitle);
-  });
-}
-//
-function floatingTitle(e) {
-  let title = e.target;
-  if (e.target.nodeName === "IMG") {
-    title = title.nextSibling.nextSibling;
-    title.classList.add("view");
-    title.classList.add("animate__animated", "animate__fadeIn");
-  } else {
-    title.classList.add("view");
-    title.classList.add("animate__animated", "animate__fadeIn");
-  }
-}
-function hiddenTitle(e) {
-  let title = e.target;
-  if (e.target.nodeName === "IMG") {
-    title = title.nextSibling.nextSibling;
-    title.classList.remove("view");
-    title.classList.remove("animate__animated", "animate__fadeIn");
-  } else {
-    title.classList.remove("view");
-    title.classList.remove("animate__animated", "animate__fadeIn");
-  }
-}
+// // nav var관련
+// function hoverClassImg() {
+//   document.documentElement.querySelectorAll(".room__rows").forEach((item, index) => {
+//     item.addEventListener("mouseover", floatingTitle);
+//     item.addEventListener("mouseout", hiddenTitle);
+//   });
+// }
+// //
+// function floatingTitle(e) {
+//   let title = e.target;
+//   if (e.target.nodeName === "IMG") {
+//     title = title.nextSibling.nextSibling;
+//     title.classList.add("view");
+//     title.classList.add("animate__animated", "animate__fadeIn");
+//   } else {
+//     title.classList.add("view");
+//     title.classList.add("animate__animated", "animate__fadeIn");
+//   }
+// }
+// function hiddenTitle(e) {
+//   let title = e.target;
+//   if (e.target.nodeName === "IMG") {
+//     title = title.nextSibling.nextSibling;
+//     title.classList.remove("view");
+//     title.classList.remove("animate__animated", "animate__fadeIn");
+//   } else {
+//     title.classList.remove("view");
+//     title.classList.remove("animate__animated", "animate__fadeIn");
+//   }
+// }
+//hoverClassImg();
 
 //navbar를 투명하게만들고 움직일때 최상단에 위치하게함.
 const navbar = document.getElementById("navbar");
@@ -67,4 +68,3 @@ document.addEventListener("scroll", () => {
     });
   }
 });
-hoverClassImg();

@@ -2,6 +2,7 @@
   position: fixed;
   right: 0;
   top: 50%;
+  z-index: 5;
 }
 
 #sideBar li {
@@ -36,7 +37,6 @@
   }
   to {
     transform: scale(1);
-    
   }
 }
 @keyframes sideBarHidden {

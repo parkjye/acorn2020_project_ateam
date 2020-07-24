@@ -26,6 +26,8 @@
 
     <script defer src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>
     <script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0f27c20b6cce8806ccf9b044c36339d0&libraries=services"></script>	
   </head>
 
   <body class="animate__animated animate__zoomIn animate__delay-0.3s">
@@ -46,93 +48,63 @@
       <div class="home__container">
         <div class="home__container__info">
           <h1 class="home__title">
-            여기다가 뭐라고 쓸까요
+            Rooms
           </h1>
-          <h2 class="home__description">
-            무슨말이 어울려요
-          </h2>
-          <div id="home__arrow" class="animate__animated animate__slideInDown animate__infinite">
-            <i class="fas fa-arrow-down"></i>
+          <p class="home__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam pariatur libero sed et architecto nobis molestiae? Ratione, dignissimos explicabo.
+            Quo exercitationem qui optio a provident eius impedit architecto nesciunt similique.
+          </p>
+          <div class="home__button">
+            <span>More Info</span>
           </div>
         </div>
         <div class="home__container__card">
-          <h1>이야</h1>
-          <h2>이야</h2>
+          <ul class="room__cards">
+            <li class="room__rows">
+              <img src="./assets/images/room1.jpg" alt="" />
+            </li>
+            <li class="room__rows">
+              <img src="./assets/images/room2.jpg" alt="" />
+            </li>
+            <li class="room__rows">
+              <img src="./assets/images/room3.jpg" alt="" />
+            </li>
+            <li class="room__rows">
+              <img src="./assets/images/room4.jpg" alt="" />
+            </li>
+          </article>
         </div>
       </div>
     </main>
 
-    <!-- roomIntroduce -->
-    <section id="roomIntroduce" class="section">
-      <div class="container">
-        <div class="room__rows">
-          <img src="./assets/images/room1.jpg" alt="" />
-          <div class="title">1 강의실</div>
+    <!-- main -->
+    <section id="mainBar" class="section">
+      <div class="main__container">
+        <div class="main__container__column">
+          <button class="openWhereModalBtn">위치 찾기</button>
         </div>
-        <div class="room__rows">
-          <img src="./assets/images/room2.jpg" alt="" />
-          <div class="title">2 강의실</div>
+        <div class="main__container__column">
+          <a href="">자세히보기</a>
         </div>
-        <div class="room__rows">
-          <img src="./assets/images/room3.jpg" alt="" />
-          <div class="title">3 강의실</div>
-        </div>
-        <div class="room__rows">
-          <img src="./assets/images/room4.jpg" alt="" />
-          <div class="title">4 강의실</div>
+        <div class="main__container__column">
+          <a href="">주변 식당</a>
         </div>
       </div>
     </section>
 
-    <!-- roomCard -->
-    <section id="roomCard" class="section">
-      <div class="__title">
-        <h1>Room Information</h1>
-        <div class="__title__line animate__animated animate__pulse animate__infinite"></div>
-      </div>
-      <div class="container">
-        <div id="roomCard_content" class="content__area">
-          <div class="content__area__row">
-            <h4 id="roomInfo__title" class="title-orange">1.강의실</h4>
-          </div>
-          <div class="content__area__row">
-            <h5 id="roomInfo__info" class="title-gray">좋은 구조/좌석30개</h5>
-          </div>
-          <div class="content__area__row">
-            <h5>스타일</h5>
-            <div class="divider"></div>
-            <h5 id="roomInfo__floor">카페형</h5>
-          </div>
-          <div class="content__area__row">
-            <h5>인원(최대)</h5>
-            <div class="divider"></div>
-            <h5 id="roomInfo__Capacity">30명</h5>
-          </div>
-          <div class="content__area__row">
-            <h5>크기</h5>
-            <div class="divider"></div>
-            <h5 id="roomInfo__Size">51평형</h5>
-          </div>
-          <div class="content__area__row">
-            <button id="roomInfo__btn-left" class="btn"><</button>
-            <button id="roomInfo__btn-right" class="btn">></button>
-          </div>
-        </div>
+    <article id="whereModal" class="hidden">
+      <div class="modal__overaly"></div>
+      <div class="modal__content">
+      	<h4>우리 팬션의 주소는</h4>
+        <div id="map" style="width:300px;height:200px;"></div>
+        <h4>길찾기</h4>
+        <a href="https://map.kakao.com/link/to/삼원타워,37.4987345,127.0316116">길찾기</a>
+        <button class="modal__close__btn">X</button>
 
-        <img id="roomInfo__img" src="assets/images/room1.jpg" alt="" class="content__img" />
-        <div class="detail__info">
-          <span class="title-orange">Contact Us</span>
-          <h4>010-2325-1002</h4>
-          <h5 class="title-gray">서울특별시 강남구 테헤란로</h5>
-          <span class="title-orange">Account Info</span>
-          <h5 class="title-gray">서울특별시 강남구 테헤란로</h5>
-          <div class="buttons">
-            <button>예약하기</button>
-            <button>오시는길</button>
-          </div>
-        </div>
-      </div>
-    </section>
+     </div>
+    </article>
+
+
     <!-- food -->
     <section id="food" class="section">
       <div class="__title">
