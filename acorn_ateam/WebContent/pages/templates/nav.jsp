@@ -7,12 +7,6 @@ System.out.println(users_id); boolean isLogged = (users_id == null) ? false :tru
     <img id="home__cup" src="${pageContext.request.contextPath}/assets/images/cup.png" alt="cup" />
   </div>
   <ul class="navbar__menu">
-    <li class="navbar__menu__item" data-link="#about">
-      <a href="${pageContext.request.contextPath}/pages/introduce.jsp">
-        <i class="fas fa-book"></i><br />
-        <span>소개</span>
-      </a>
-    </li>
     <li class="navbar__menu__item" data-link="#reserve">
       <a href="${pageContext.request.contextPath}/pages/reserve-calender.jsp">
         <i class="far fa-calendar-alt"></i><br />
