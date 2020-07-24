@@ -3,7 +3,7 @@
 <%@page import="board.dto.BoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<% 	
-    	String users_id = (String)session.getAttribute("id");
+    	String users_id = (String)session.getAttribute("users_id");
     	
     	//--------페이징--------
     	//한 페이지에 나타낼 row 의 갯수
@@ -78,7 +78,13 @@
 
     <script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
 
-
+	<!-- 화살표 크기 조절을 위한 임시 style입니다. -->
+	<style>
+		.arrow{
+			width: 10px;
+			height: 10px;
+		}
+	</style>
 </head>
 <body>
 	<jsp:include page="templates/nav.jsp"></jsp:include>
@@ -110,7 +116,7 @@
 							<td><%=tmp.getBoard_date() %></td>
 	
 							<td><%=tmp.getUsers_id() %></td>
-							<td><a href="review-detail.jsp?num=<%=tmp.getBoard_num() %>"><%=tmp.getBoard_title() %></a></td>
+							<td><a href="review-detail.jsp?board_num=<%=tmp.getBoard_num() %>"><%=tmp.getBoard_title() %></a></td>
 	
 							<td><%=tmp.getBoard_view() %></td>
 							<td><%=tmp.getBoard_comment_count() %></td>
@@ -124,8 +130,11 @@
 			<div class="pagingWrap">
 				<ul>			
 				<%if(startPageNum != 1) {%>
-					<li><a href="reviews.jsp?pageNum=<%=startPageNum-1 %>">이전</a></li>
+					<li><a href="reviews.jsp?pageNum=<%=startPageNum-1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>
+				<%} else {%>
+					<li><a href="javascript:"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>					
 				<%} %>
+				
 				<%for(int i=startPageNum; i<=endPageNum; i++){ %>
 					<% if(i==pageNum) {%>
 						<li><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
@@ -133,8 +142,11 @@
 						<li><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
 					<%} %>
 				<%} %>
+				
 				<% if(endPageNum < totalPageCount){%>
-					<li><a href="reviews.jsp?pageNum=<%=endPageNum+1 %>">다음</a></li>
+					<li><a href="reviews.jsp?pageNum=<%=endPageNum+1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
+				<%} else {%>
+					<li><a href=""><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
 				<%} %>
 				</ul>
 			</div>

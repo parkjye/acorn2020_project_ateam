@@ -26,12 +26,12 @@
 <%if(isSuccess){ %>
 	<script>
 		alert("작성한 글이 저장되었습니다.");
-		location.href="reviews-form.jsp";
+		location.href="../reviews.jsp";
 	</script>
 	<%} else{ %>
 	<script>
 		alert("작성한 글 저장에 실패했습니다.");
-		location.href="write-reviews-form.jsp";
+		location.href="review-write-form.jsp";
 	</script>
 <%} %>
 </body>
