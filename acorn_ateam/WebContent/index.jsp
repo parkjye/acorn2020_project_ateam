@@ -24,7 +24,18 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Yeon+Sung&display=swap" rel="stylesheet" /> -->
     <script src="https://kit.fontawesome.com/c0a9fdc19a.js"></script>
 
-    <script defer src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
+<!-- If you use the default popups, use this. -->
+<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+<script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+<script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+
+
+    <script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>
     <script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0f27c20b6cce8806ccf9b044c36339d0&libraries=services"></script>	
@@ -36,9 +47,10 @@
     <aside id="sideBar">
       <div class="container">
         <ul>
-          <li><i class="fas fa-book"></i><br /></li>
-          <li><i class="far fa-calendar-alt"></i><br /></li>
-          <li><i class="fas fa-clipboard-list"></i><br /></li>
+          
+          <li><a href="${pageContext.request.contextPath}/pages/introduce.jsp"><i class="fas fa-book"></i></a></li>
+          <li><a href="${pageContext.request.contextPath}/pages/reserve-calender.jsp"><i class="far fa-calendar-alt"></i></a></li>
+          <li><a href="${pageContext.request.contextPath}/pages/reviews.jsp"><i class="fas fa-clipboard-list"></i></a></li>
         </ul>
       </div>
     </aside>
@@ -104,7 +116,9 @@
      </div>
     </article>
 
+    <!-- <div id="calendar" style="height: 800px;"></div> -->
 
+    
     <!-- food -->
     <section id="food" class="section">
       <div class="__title">

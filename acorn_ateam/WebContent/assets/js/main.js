@@ -1,3 +1,11 @@
+// import Calendar from "./tui-calendar"; /* ES6 */
+// // import Calendar from 'tui-calendar'
+// import "./tui-calendar/dist/tui-calendar.css";
+
+// // If you use the default popups, use this.
+// import "./tui-date-picker/dist/tui-date-picker.css";
+// import "./tui-time-picker/dist/tui-time-picker.css";
+
 // 스크롤시 부드러운 움직임.
 function scrollTo(element, dir) {
   if (dir == "up") {
@@ -74,5 +82,30 @@ overlayModal.addEventListener("click", closeModal);
 closeBtnModal.addEventListener("click", closeModal);
 //open Modal
 openWhereModalBtn.addEventListener("click", openWhereModal);
+
+// var calendar = tui.Calendar;
+
+// var calendar = tui.Calendar;
+var calendar = new tui.Calendar("#calendar", {
+  defaultView: "month",
+  taskView: true,
+  template: {
+    monthDayname: function (dayname) {
+      return '<span class="calendar-week-dayname-name">' + dayname.label + "</span>";
+    },
+  },
+});
+
+calendar.createSchedules([
+  {
+    id: "1",
+    calendarId: "1",
+    title: "my schedule",
+    category: "time",
+    dueDateClass: "",
+    start: "2020-07-24T22:30:00+09:00",
+    end: "2020-07-24T02:30:00+09:00",
+  },
+]);
 
 init();
