@@ -79,6 +79,7 @@
   border: 3px solid white;
   border-radius: 5px;
 }
+
 @keyframes homeImgMove {
   0% {
     background-position: 0 0;

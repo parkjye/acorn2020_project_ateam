@@ -35,7 +35,7 @@
 <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
 
 
-    <script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>
+    <script  type="module"  src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>
     <script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0f27c20b6cce8806ccf9b044c36339d0&libraries=services"></script>	
@@ -106,13 +106,32 @@
 
     <article id="whereModal" class="hidden">
       <div class="modal__overaly"></div>
-      <div class="modal__content">
-      	<h4>우리 팬션의 주소는</h4>
-        <div id="map" style="width:300px;height:200px;"></div>
-        <h4>길찾기</h4>
-        <a href="https://map.kakao.com/link/to/삼원타워,37.4987345,127.0316116">길찾기</a>
-        <button class="modal__close__btn">X</button>
+      <div class="modal__content flex-column">
+          <button class="modal__close__btn">X</button>
+          <div id="modal__top">
+            <h4>찾아오는길</h4>
+          </div>
+          <div class="flex__rows">
+            <div id="map"></div>
 
+          </div>  
+          <div class="flex__rows">
+            <a href="https://map.kakao.com/link/to/삼원타워,37.4987345,127.0316116" target="__blank">길찾기</a>
+          </div>
+          <div id="modal__foot" class="flex-row flex__rows">
+            <div class="flex__column">
+              <h4>에이콘 팬션</h4>
+            </div>
+            <div class="flex__column">
+              <div class="divider"></div>
+            </div>
+            <div class="flex__column">
+              <h3>블라블라블라블라</h3>
+              <h3>ㅁㄴㅇㄴㅁㅇㄴㅁㅇ</h3>
+              <h3>1231231</h3>
+            </div>
+          </div>  
+        </div>
      </div>
     </article>
 

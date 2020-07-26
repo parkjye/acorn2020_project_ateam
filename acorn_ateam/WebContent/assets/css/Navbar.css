@@ -10,8 +10,9 @@
   /* color: var(--color-black); */
   /* color: green; */
   padding: 16px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.541);
   transition: all var(--animation-duration) ease-in-out;
+  
 
   z-index: 5;
 }
@@ -74,8 +75,8 @@
 .white {
   color: #f6f0e4;
 }
-.white:hover {
-}
+
+
 .navbar__toggle-btn {
   position: absolute;
   top: 19px;
@@ -84,9 +85,16 @@
   display: none;
   color: var(--color-white);
 }
+#navbar.navbar--transparent{
+  background-color: rgba(0, 0, 0, 0);
+}
 #navbar.navbar--dark {
   background-color: rgba(0, 0, 0, 0.541);
   color: white;
+}
+.subPage {
+  padding-top: 100px;
+  /* background-color: red; */
 }
 
 /* .nav__box {

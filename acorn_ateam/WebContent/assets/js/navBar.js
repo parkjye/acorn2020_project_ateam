@@ -46,7 +46,9 @@ document.addEventListener("scroll", () => {
     sideBar.classList.remove("hidden");
 
     sideBar.classList.add("view");
+    navbar.classList.remove("navbar--transparent");
     navbar.classList.add("navbar--dark");
+    
 
     document.querySelector(".navbar__logo").childNodes[1].classList.add("white");
 
@@ -59,6 +61,7 @@ document.addEventListener("scroll", () => {
     sideBar.classList.remove("view");
     sideBar.classList.add("hidden");
     navbar.classList.remove("navbar--dark");
+    navbar.classList.add("navbar--transparent");
     document.querySelector(".navbar__logo").childNodes[1].classList.remove("white");
 
     const a = document.querySelectorAll(".navbar__menu__item").forEach((item) => {
