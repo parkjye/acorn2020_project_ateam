@@ -1,17 +1,9 @@
-<%@page import="java.util.List"%>
-<%@page import="date.dto.DateDto"%>
-<%@page import="date.dao.DateDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	DateDao dao = DateDao.getInstance();
-	List<DateDto> list = dao.getDateList();
-	
-	/*for(DateDto tmp:list){
-		tmp.getDate_year();
-	}*/
+	//DB에서 json이든 배열형태든 어떤 데이터로 받아오겠지요?
+	//배열로 뭔가 생겨있을거아냐 ?
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +22,7 @@
 <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
 <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
 
-<!--  <script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>-->
-<!---->  <script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main-calendar.js?v=<%=System.currentTimeMillis() %>"></script>
+<script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main-calendar-admin.js?v=<%=System.currentTimeMillis() %>"></script>
    
 </head>
 <body>
@@ -56,23 +47,7 @@
 
 
 <script>
-<%--
-<%if(canPopup) {%>
-showPopup2();	
-<%}	%>
 
-
-<%for(DateDto tmp:list){%>
-	createSchedules().title = tmp.getRoom_name();
-<%}%>
-
-{
-	"isSuccess":"<%= %>", 
-	"name":"<%= %>", 
-
-	"email":"<%= %>",
-	"phone":"<%= %>"
-}--%>
 </script>
 
 </body>

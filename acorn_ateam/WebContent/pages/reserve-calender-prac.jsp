@@ -6,10 +6,6 @@
 <%
 	DateDao dao = DateDao.getInstance();
 	List<DateDto> list = dao.getDateList();
-	
-	/*for(DateDto tmp:list){
-		tmp.getDate_year();
-	}*/
 %>
 
 <!DOCTYPE html>
@@ -30,8 +26,8 @@
 <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
 <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
 
-<!--  <script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>-->
-<!---->  <script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main-calendar.js?v=<%=System.currentTimeMillis() %>"></script>
+<!-- -->  
+<script defer type="module"  src="${pageContext.request.contextPath}/assets/js/main-calendar-prac.js?v=<%=System.currentTimeMillis() %>"></script>
    
 </head>
 <body>
@@ -56,23 +52,7 @@
 
 
 <script>
-<%--
-<%if(canPopup) {%>
-showPopup2();	
-<%}	%>
 
-
-<%for(DateDto tmp:list){%>
-	createSchedules().title = tmp.getRoom_name();
-<%}%>
-
-{
-	"isSuccess":"<%= %>", 
-	"name":"<%= %>", 
-
-	"email":"<%= %>",
-	"phone":"<%= %>"
-}--%>
 </script>
 
 </body>

@@ -20,48 +20,60 @@ function init() {
 }
 
 //tui.calendar는 인터넷에서 다운받은 script. tui.Calendar 객체를 생성해서 사용한다.
-var calendar = new Calendar('#calendar', {
+var calendar = new tui.Calendar('#calendar', {
 	  defaultView: 'month',
 	  taskView: true,
+	  //
+	  //useCreationPopup: true,
+	  useDetailPopup: true,
+	  //
 	  template: {
 	    monthDayname: function(dayname) {
 	      return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
 	    }
 	    
 	  }
-	});
+});
 
+//예약현황 Data
 calendar.createSchedules([
     {
         id: '1',
-        calendarId: '1',
-        title: 'my schedule',
-        category: 'time',
+        scheduleId: 'test',
+        calendarId: 'Reservated', //삭제할 일정 ID
+        title: '예약 됨',
+        category: 'allday', //종류('milestone', 'task', allday', 'time')
         dueDateClass: '',
-        start: '2018-01-18T22:30:00+09:00',
-        end: '2018-01-19T02:30:00+09:00'
+        start: '2020-07-26',
+        end: '2020-07-27',
+        isReadOnly: false, //읽기전용
     },
     {
         id: '2',
-        calendarId: '1',
-        title: 'second schedule',
-        category: 'time',
+        calendarId: 'Reservation Available',
+        title: '예약 가능',
+        category: 'allday',
         dueDateClass: '',
-        start: '2018-01-18T17:30:00+09:00',
-        end: '2018-01-19T17:31:00+09:00',
-        isReadOnly: true //읽기전용
+        start: '2020-07-25',
+        end: '2020-07-25',
+        isReadOnly: true
     }
 ]);
 
-calendar.updateSchedule(schedule.id, schedule.calendarId, {
-    start: startTime,
-    end: endTime
+//스케줄 CSS
+calendar.setCalendarColor('Reservated', {
+	  color: '#c1c1d7', //회색
+	  bgColor: '#ffffff',
+	  //dragBgColor: '#000000',
+	  borderColor: '#0000ff' //blue
 });
 
-/*달력 읽기전용
-calendar.createSchedule({
-    title: 'read-only schedule',
-    isReadOnly: true
-});*/
+calendar.setCalendarColor('Reservation Available', {
+	  color: '#000000', //회색
+	  bgColor: '#ffffff',
+	  //dragBgColor: '#000000',
+	  borderColor: '#ff0000' //red
+});
 
 init();
+
