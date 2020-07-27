@@ -59,7 +59,7 @@ public class ReserveDao {
 	}
 	
 	// reserve.jsp -> date_num 받아오는 코드
-	public int getDateNum(String date_day,String room_name) {
+	public int getDateNum(ReserveDto dto) {
 		 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -73,10 +73,13 @@ public class ReserveDao {
 			
 			String sql = "select date_num "
 						+" from tb_date "
-						+" where date_day=? room_name=?"; 
+						+" where date_year=? date_month=? date_day=? room_name=?"; 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, date_day);
-			pstmt.setString(2, room_name);
+			
+			pstmt.setString(1, dto.getDate_year());
+			pstmt.setString(2, dto.getDate_month());
+			pstmt.setString(3, dto.getDate_day());
+			pstmt.setString(4, dto.getRoom_name());
 			rs = pstmt.executeQuery();
 			 
 			if (rs.next()) {
