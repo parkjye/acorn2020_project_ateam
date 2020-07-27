@@ -36,7 +36,6 @@
 		boolean isSuccess=dao.insert(dto);
 	}
 
-	
 %>	
 
     

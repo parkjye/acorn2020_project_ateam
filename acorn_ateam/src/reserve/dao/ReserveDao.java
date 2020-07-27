@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import app.util.DbcpBean;
 import date.dto.DateDto;
 import reserve.dto.ReserveDto;
+import users.dto.UsersDto;
 
 
 public class ReserveDao {
@@ -19,31 +20,8 @@ public class ReserveDao {
 		}
 		return dao;
 	}
-//	
-//	public void switchCase(int msg) {
-//		
-//		switch(msg){
-//		case 1:
-//			System.out.println("1��2��");
-//			break;
-//		case 2:
-//			System.out.println("2��3��");
-//			break;
-//		case 3:
-//			System.out.println("3��4��");
-//			break;
-//		case 4:
-//			System.out.println("4��5��");
-//			break;
-//		case 5:
-//			System.out.println("5��6��");
-//			break;
-//		case 6:
-//			System.out.println("6��7��");
-//			break;
-//		}
-//	}
-//	
+
+	
 	
 	public boolean insert(ReserveDto dto) {
 		Connection conn = null;
