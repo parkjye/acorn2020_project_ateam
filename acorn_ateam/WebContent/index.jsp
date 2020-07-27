@@ -25,16 +25,6 @@
     <script src="https://kit.fontawesome.com/c0a9fdc19a.js"></script>
 
 
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
-<!-- If you use the default popups, use this. -->
-<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
-<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
-<script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
-<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
-<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
-<script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
-
-
     <script  type="module"  src="${pageContext.request.contextPath}/assets/js/main.js?v=<%=System.currentTimeMillis() %>"></script>
     <script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
 
@@ -126,16 +116,14 @@
               <div class="divider"></div>
             </div>
             <div class="flex__column">
-              <h3>블라블라블라블라</h3>
-              <h3>ㅁㄴㅇㄴㅁㅇㄴㅁㅇ</h3>
-              <h3>1231231</h3>
+              <h3>서울시 강남구 테헤란로 삼원타워 5층</h3>
             </div>
           </div>  
         </div>
      </div>
     </article>
 
-    <!-- <div id="calendar" style="height: 800px;"></div> -->
+    
 
     
     <!-- food -->

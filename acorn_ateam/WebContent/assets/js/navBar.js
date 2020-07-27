@@ -48,7 +48,6 @@ document.addEventListener("scroll", () => {
     sideBar.classList.add("view");
     navbar.classList.remove("navbar--transparent");
     navbar.classList.add("navbar--dark");
-    
 
     document.querySelector(".navbar__logo").childNodes[1].classList.add("white");
 

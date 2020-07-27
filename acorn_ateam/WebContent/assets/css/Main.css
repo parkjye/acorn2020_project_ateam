@@ -77,7 +77,7 @@
   transform: perspective(350px) rotateX(40deg);
 }
 .flex__rows {
-  background-color: red;
+  /* background-color: red; */
   width: 50%;
 }
 #whereModal .flex-row {

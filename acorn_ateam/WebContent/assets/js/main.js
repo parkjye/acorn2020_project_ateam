@@ -21,10 +21,9 @@ function scrollTo(element, dir) {
 }
 
 //홈화면일경우만 nav탭을 변경함
-function changeNavColor(){
+function changeNavColor() {
   const home = document.getElementById("home");
-  if(home)
-  {
+  if (home) {
     const nav = document.getElementById("navbar");
     // nav.setAttribute("backgroundColor","rgba(0,0,0,0");
     // nav.style.backgroundColor = "rgba(0,0,0,0)";
@@ -97,27 +96,6 @@ openWhereModalBtn.addEventListener("click", openWhereModal);
 
 // var calendar = tui.Calendar;
 
-// // var calendar = tui.Calendar;
-// var calendar = new tui.Calendar("#calendar", {
-//   defaultView: "month",
-//   taskView: true,
-//   template: {
-//     monthDayname: function (dayname) {
-//       return '<span class="calendar-week-dayname-name">' + dayname.label + "</span>";
-//     },
-//   },
-// });
-
-// calendar.createSchedules([
-//   {
-//     id: "1",
-//     calendarId: "1",
-//     title: "my schedule",
-//     category: "time",
-//     dueDateClass: "",
-//     start: "2020-07-24T22:30:00+09:00",
-//     end: "2020-07-24T02:30:00+09:00",
-//   },
-// ]);
+// var calendar = tui.Calendar;
 
 init();
