@@ -90,12 +90,10 @@
 }
 #navbar.navbar--dark {
   background-color: rgba(0, 0, 0, 0.541);
+  /* background-color: rgba(250, 211, 144,1.0); */
   color: white;
 }
-.subPage {
-  padding-top: 100px;
-  /* background-color: red; */
-}
+
 
 /* .nav__box {
   width: 100%;

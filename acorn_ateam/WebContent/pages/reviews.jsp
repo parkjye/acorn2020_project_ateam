@@ -114,5 +114,6 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <!-- tableWrap -->
       </div>
+    	<jsp:include page="templates/footer.jsp"></jsp:include>
     </body>
   </html>

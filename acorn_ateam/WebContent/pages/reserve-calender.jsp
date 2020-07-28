@@ -42,6 +42,7 @@
         <a id="calendar__button" href="#" class="myButton"><i class="fas fa-bell"></i>  예약하기</a>
       </div>
     </div>
+    <jsp:include page="templates/footer.jsp"></jsp:include>
   </body>
 </html>
 

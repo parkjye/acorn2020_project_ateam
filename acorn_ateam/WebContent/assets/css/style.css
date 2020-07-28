@@ -143,11 +143,19 @@ p {
   text-align: center;
   max-width: 1200px;
   margin: auto;
+  /* background-color: blue; */
   /* 보통 1000에서 1200이 데스크탑에서 보기 편한거임. */
 }
 .section__container {
   max-width: 1200px;
   margin: auto;
+  
+}
+
+
+.subPage {
+  padding-top: 100px;
+  min-height: 1000px;
 }
 
 /* for below 768px screen width */

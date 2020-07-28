@@ -172,8 +172,9 @@
         </li>
       </ul>
     </section>
+    <jsp:include page="pages/templates/footer.jsp"></jsp:include>
 
-    <!-- footer -->
+    <!-- footer
     <footer id="footer">
       <div class="section">
         <div class="container">
@@ -206,6 +207,6 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>

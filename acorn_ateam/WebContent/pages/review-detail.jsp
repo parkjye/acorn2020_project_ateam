@@ -15,9 +15,6 @@ BoardDto dto = BoardDao.getInstance().getReview(board_num);
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Navbar.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/SideBar.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/table.css?v=<%=System.currentTimeMillis() %>" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/RoomIntroduce.css?v=<%=System.currentTimeMillis() %>" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/RoomCard.css?v=<%=System.currentTimeMillis() %>" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Food.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Footer.css?v=<%=System.currentTimeMillis() %>" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/review-detail.css?v=<%=System.currentTimeMillis() %>" />
 
@@ -83,13 +80,9 @@ BoardDto dto = BoardDao.getInstance().getReview(board_num);
           <!-- comment(댓글) 추가 -->
         </div>
       </div>
-
-      
-
-      </div>
     </div>
-    <!-- wrap -->
-
+    </div>
+    <jsp:include page="templates/footer.jsp"></jsp:include>
 
     <script>
       function deleteConfirm(board_num) {
