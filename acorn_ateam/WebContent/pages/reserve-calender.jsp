@@ -6,10 +6,6 @@
 <%
 	DateDao dao = DateDao.getInstance();
 	List<DateDto> list = dao.getDateList();
-	
-	/*for(DateDto tmp:list){
-		tmp.getDate_year();
-	}*/
 %>
 
 <!DOCTYPE html>
@@ -54,26 +50,8 @@
 달력의 height는 임시로 지정합니다. default height:800px -->
 <div id="calendar" style="height: 500px;"></div>
 
-
 <script>
-<%--
-<%if(canPopup) {%>
-showPopup2();	
-<%}	%>
 
-
-<%for(DateDto tmp:list){%>
-	createSchedules().title = tmp.getRoom_name();
-<%}%>
-
-{
-	"isSuccess":"<%= %>", 
-	"name":"<%= %>", 
-
-	"email":"<%= %>",
-	"phone":"<%= %>"
-}--%>
 </script>
-
 </body>
 </html>
