@@ -27,8 +27,8 @@ calendar.on("clickMore", function (event) {
 // });
 calendar.toggleScheduleView(false);
 calendar.toggleTaskView(false);
-calendar.setOptions(disableClick, true);
-calendar.setOptions(isReadOnly, true);
+// calendar.setOptions(disableClick, true);
+// calendar.setOptions(isReadOnly, true);
 
 calendar.createSchedules([
   {

@@ -36,8 +36,14 @@
     <jsp:include page="templates/nav.jsp"></jsp:include>
 
     <div class="section subPage">
-      <h1>예약달력이 나오는 페이지 입니다.</h1>
-      <div id="calendar"></div>
+      <div class="container">
+        <h1 class="calender__title"> 📢 예약 현황을 확인하세요</h1>
+        <div id="calendar"></div>
+        <a id="calendar__button" href="#" class="myButton"><i class="fas fa-bell"></i>  예약하기</a>
+      </div>
     </div>
   </body>
 </html>
+
+
+
