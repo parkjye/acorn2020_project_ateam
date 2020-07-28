@@ -188,9 +188,6 @@ public class BoardDao {
 		PreparedStatement pstmt = null;
 		int viewCnt = dto.getBoard_view();
 		
-		//
-		System.out.println("dao; "+viewCnt);
-		
 		try {
 			//Connection Pool에서 Connection 객체를 하나 가지고 온다.
 			conn = new DbcpBean().getConn();
