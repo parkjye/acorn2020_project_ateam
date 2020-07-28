@@ -46,6 +46,7 @@
 /* 상세정보 */
 .flex__columns:nth-child(2)
 {
+  justify-content: space-between;
   background-color: rgba(30, 39, 46,0.1);
   /* border-top: 1px solid gray;
   border-bottom: 1px solid gray; */
@@ -55,7 +56,7 @@
 
 .flex__columns:nth-child(2) * {
   margin: 0 5px;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 #board__id.board__detail__id{
