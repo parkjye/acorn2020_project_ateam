@@ -53,8 +53,8 @@
 		
 		<div class="contentWrap">
 			<input type="hidden" name="board_content" value="<%=dto.getBoard_content()%>"/>
-			<textarea name="board_content" cols="40" rows="5" disabled><%=dto.getBoard_content() %></textarea>
-			
+			<div id="content"><%=dto.getBoard_content() %></div>
+			<!--  <textarea name="board_content" id="content" cols="100" rows="5" disabled><%=dto.getBoard_content() %></textarea>-->
 			<!-- comment(댓글) 추가 -->
 		</div>
 
