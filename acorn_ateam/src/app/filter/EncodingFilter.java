@@ -22,8 +22,8 @@ public class EncodingFilter implements Filter{
 			throws IOException, ServletException {
 		if(request.getCharacterEncoding()==null) {
 			request.setCharacterEncoding("utf-8");
-			chain.doFilter(request, response);
 		}
+		chain.doFilter(request, response);
 	}
 
 	@Override
