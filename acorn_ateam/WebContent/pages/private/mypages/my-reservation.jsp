@@ -1,5 +1,6 @@
-<%@page import="room.dao.ReserveDao"%>
-<%@page import="room.dto.ReserveDto"%>
+<%@page import="reserve.dto.ReserveDto"%>
+<%@page import="reserve.dao.ReserveDao"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

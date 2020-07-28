@@ -83,6 +83,63 @@ public class BoardDao {
 		return list;
 		}
 
+	//return 글
+	public BoardDto getReview(int board_num) {
+		
+		BoardDto dto = null;
+		
+		//필요한 객체의 참조값을 담을 지역변수 만들기 
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			//Connection 객체의 참조값 얻어오기 
+			conn = new DbcpBean().getConn();
+
+			//실행할 sql 문 준비하기
+			String sql = "select board_num, users_id, board_title, board_content,"
+					+ " board_view, board_up, board_down,"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mi') as board_date"
+					+ " from tb_board"
+					+ " where board_num=?";
+
+			pstmt = conn.prepareStatement(sql);
+
+			//sql 문에 ? 에 바인딩 
+			pstmt.setInt(1, board_num);
+
+			//select 문 수행하고 결과 받아오기 
+			rs = pstmt.executeQuery();
+
+			//반복문 돌면서 결과 값 추출하기 
+			while(rs.next()) {
+				dto = new BoardDto();
+				dto.setBoard_num(board_num);
+				dto.setUsers_id(rs.getString("users_id"));
+				dto.setBoard_title(rs.getString("board_title"));
+				dto.setBoard_content(rs.getString("board_content"));
+				dto.setBoard_view(rs.getInt("board_view"));
+				dto.setBoard_up(rs.getInt("board_up"));
+				dto.setBoard_down(rs.getInt("board_down"));
+				dto.setBoard_date(rs.getString("board_date"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return dto;
+	}
+		
 	//return 전체 글 갯수
 	public int getCount() {
 		//전체 row의 갯수를 담을 지역변수
@@ -124,60 +181,42 @@ public class BoardDao {
 		return count;
 	}
 	
-	//return 글
-	public BoardDto getReview(int board_num) {
-		
-		BoardDto dto = null;
-		
+	//조회수 +1
+	public int addBoardView(BoardDto dto) {
 		//필요한 객체의 참조값을 담을 지역변수 만들기 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-
+		int viewCnt = dto.getBoard_view();
+		
 		try {
-			//Connection 객체의 참조값 얻어오기 
+			//Connection Pool에서 Connection 객체를 하나 가지고 온다.
 			conn = new DbcpBean().getConn();
 
-			//실행할 sql 문 준비하기
-			String sql = "select board_num, users_id, board_title, board_content,"
-					+ " board_view, board_up, board_down, board_date"
-					+ " from tb_board"
+			String sql = "update tb_board"
+					+ " set board_view = board_view+1"
 					+ " where board_num=?";
 
 			pstmt = conn.prepareStatement(sql);
 
-			//sql 문에 ? 에 바인딩 
-			pstmt.setInt(1, board_num);
+			//sql문에 ? 에 바인딩 
+			pstmt.setInt(1, dto.getBoard_num());
 
-			//select 문 수행하고 결과 받아오기 
-			rs = pstmt.executeQuery();
+			//sql문 수행하고 update or insert or delete된 row의 갯수 리턴받기
+			viewCnt = pstmt.executeUpdate();
 
-			//반복문 돌면서 결과 값 추출하기 
-			while(rs.next()) {
-				dto = new BoardDto();
-				dto.setBoard_num(board_num);
-				dto.setUsers_id(rs.getString("users_id"));
-				dto.setBoard_title(rs.getString("board_title"));
-				dto.setBoard_content(rs.getString("board_content"));
-				dto.setBoard_view(rs.getInt("board_view"));
-				dto.setBoard_up(rs.getInt("board_up"));
-				dto.setBoard_down(rs.getInt("board_down"));
-				dto.setBoard_date(rs.getString("board_date"));
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null)
-					rs.close();
 				if (pstmt != null)
 					pstmt.close();
 				if (conn != null)
-					conn.close();
+					conn.close(); //Connection 반납하기
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
-		return dto;
+		return viewCnt;
 	}
 
 	//글 작성
@@ -273,7 +312,7 @@ public class BoardDao {
 	}
 
 	//글 삭제
-	public boolean deleteReview(int Board_num) {
+	public boolean deleteReview(int board_num) {
 		//필요한 객체의 참조값을 담을 지역변수 만들기 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -288,7 +327,7 @@ public class BoardDao {
 			pstmt = conn.prepareStatement(sql);
 
 			//sql문에 ? 에 바인딩 
-			pstmt.setInt(1, Board_num);
+			pstmt.setInt(1, board_num);
 
 			//sql문 수행하고 update or insert or delete된 row의 갯수 리턴받기
 			flag = pstmt.executeUpdate();
@@ -311,4 +350,5 @@ public class BoardDao {
 			return false;
 		}
 	}
+
 }//BoardDao

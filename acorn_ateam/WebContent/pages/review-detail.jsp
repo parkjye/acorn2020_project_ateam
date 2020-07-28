@@ -1,10 +1,18 @@
-<%@page import="board.dao.BoardDao"%> <%@page import="board.dto.BoardDto"%> <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> 
-<% 
-int board_num = Integer.parseInt(request.getParameter("num")); 
-String users_id = (String)session.getAttribute("users_id"); 
-BoardDto dto = BoardDao.getInstance().getReview(board_num);
- %>
+<%@page import="board.dao.BoardDao"%>
+<%@page import="board.dto.BoardDto"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    	String users_id = (String)session.getAttribute("users_id");
+    
+    	int board_num = Integer.parseInt(request.getParameter("board_num"));
+    	String getBoardNum = request.getParameter("Board_num");
+    	
+    	BoardDao dao = BoardDao.getInstance();
+    	
+    	BoardDto dto = dao.getReview(board_num);
+    	dao.addBoardView(dto);
+    %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -85,13 +93,13 @@ BoardDto dto = BoardDao.getInstance().getReview(board_num);
     <jsp:include page="templates/footer.jsp"></jsp:include>
 
     <script>
-      function deleteConfirm(board_num) {
-        let isDelete = confirm(board_num + "번 글을 삭제 하시겠습니까?");
-
-        if (isDelete) {
-          location.href = "${pageContext.request.contextPath}/pages/private/review-delete.jsp?num=" + board_num;
-        }
-      }
+    function deleteConfirm(board_num){
+      let isDelete=confirm("해당 글을 삭제 하시겠습니까?");
+      
+      if(isDelete){
+        location.href="${pageContext.request.contextPath}/pages/private/review-delete.jsp?board_num="+board_num;
+      }	
+    }
     </script>
   </body>
 </html>
