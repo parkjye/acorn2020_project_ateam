@@ -104,7 +104,7 @@ public class BoardDao {
 			 * null인 경우 0으로 바꿔줘야한다. NVL(max(ROWNUM), 0)
 			 */
 			String sql = "select NVL(max(ROWNUM), 0) as board_num"
-					+ " from tb_board where board_title like '%'|| '?' || '%'";
+					+ " from tb_board where board_title like '%'|| ? || '%'";
 			
 			pstmt = conn.prepareStatement(sql);
 	
@@ -216,7 +216,7 @@ public class BoardDao {
 			 * null인 경우 0으로 바꿔줘야한다. NVL(max(ROWNUM), 0)
 			 */
 			String sql = "select NVL(max(ROWNUM), 0) as board_num"
-					+ " from tb_board where users_id like '%'|| '?' || '%'";
+					+ " from tb_board where users_id like '%'|| ? || '%'";
 			pstmt = conn.prepareStatement(sql);
 
 			//sql문 values내의 ?에 바인딩
@@ -227,7 +227,7 @@ public class BoardDao {
 
 			//반복문 돌면서 결과 값 추출하기
 			if (rs.next()) {
-				count=rs.getInt("num");
+				count=rs.getInt("board_num");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -344,7 +344,7 @@ public class BoardDao {
 
 			//반복문 돌면서 결과 값 추출하기
 			if (rs.next()) {
-				count=rs.getInt("num");
+				count=rs.getInt("board_num");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
