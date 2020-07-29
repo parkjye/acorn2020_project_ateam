@@ -3,13 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
+    	String users_id = (String)session.getAttribute("users_id");
+    
     	String board_title = request.getParameter("board_title");
     	String board_content = request.getParameter("board_content");
     	
-    	String users_id = (String)session.getAttribute("users_id");
-    	
     	BoardDto dto = new BoardDto();
-    	
     	dto.setUsers_id(users_id);
     	dto.setBoard_title(board_title);
     	dto.setBoard_content(board_content);

@@ -43,8 +43,8 @@
 			}
 		}, //boolean
 		fOnAppLoad : function(){
-			//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-			//oEditors.getById["content"].exec("PASTE_HTML", ["기존 DB에 저장된 내용을 에디터에 적용할 문구"]);
+			//예제 코드
+			//oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
 		},
 		fCreator: "createSEditor2"
 	});
@@ -63,7 +63,6 @@
 	//<button type="submit" onclick="submitContents(this);">저장</button>
 	function submitContents(elClickedObj) {
 		oEditors.getById["board_content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-		//태그
 		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("content").value를 이용해서 처리하면 됩니다.
 		
 		try {

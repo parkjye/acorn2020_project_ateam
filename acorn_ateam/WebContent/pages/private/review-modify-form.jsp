@@ -49,13 +49,14 @@
 			
 		<div class="buttonWrap">
 			<button type="submit" onclick="submitContents(this);">수정</button>
-			<button type="reset">취소</button>
+			<button type="button" onclick="location.href='${pageContext.request.contextPath}/pages/review-detail.jsp?board_num=<%=board_num%>'">취소</button>
 		</div>
 	</form>
 
 <!-- SmartEditor  -->
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 <script>
+<%-- Smart Editor --%>
 	var oEditors = [];
 	
 	//추가 글꼴 목록
@@ -93,7 +94,6 @@
 		
 	function submitContents(elClickedObj) {
 		oEditors.getById["board_content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-		
 		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("content").value를 이용해서 처리하면 됩니다.
 		
 		try {

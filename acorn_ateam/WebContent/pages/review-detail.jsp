@@ -4,12 +4,9 @@
     pageEncoding="UTF-8"%>
     <%
     	String users_id = (String)session.getAttribute("users_id");
-    
     	int board_num = Integer.parseInt(request.getParameter("board_num"));
-    	String getBoardNum = request.getParameter("Board_num");
     	
     	BoardDao dao = BoardDao.getInstance();
-    	
     	BoardDto dto = dao.getReview(board_num);
     	dao.addBoardView(dto);
     %>

@@ -8,7 +8,6 @@
 		String board_content = request.getParameter("board_content");
 		
 		BoardDto dto = new BoardDto();
-		
 		dto.setBoard_num(board_num);
 		dto.setBoard_title(board_title);
 		dto.setBoard_content(board_content);

@@ -20,6 +20,351 @@ public class BoardDao {
 		return dao;
 	}
 	
+	// -------1. 제목 / 2. 작성자 / 3. 제목+작성자----------------
+	// ---------- 키워드 검색 관련 메소드 ----------
+	// 1. 제목
+	public List<BoardDto> getWordTitle(BoardDto dto){
+		
+		List<BoardDto> list=new ArrayList<>();
+		
+		//필요한 객체의 참조값을 담을 지역변수 만들기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection 객체의 참조값 얻어오기
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 준비하기
+			String sql = "select * from (select result1.*, rownum as rnum"
+					+ " from (select board_num, users_id, board_title, board_content,"
+					+ " board_view, board_comment_count, board_up, board_down,"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " from tb_board where board_title like '%'|| ? ||'%' order by board_num desc) result1)"
+					+ " where rnum between ? and ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			//sql 문에 ? 에 바인딩할 값이 있으면 바인딩하고
+			pstmt.setString(1, dto.getBoard_title());
+			pstmt.setInt(2, dto.getStartRowNum());
+			pstmt.setInt(3, dto.getEndRowNum());
+			
+			//select 문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+			
+			//반복문 돌면서 결과 값 추출하기
+			while (rs.next()) {
+				
+				BoardDto tmp = new BoardDto();
+				
+				tmp.setBoard_num(rs.getInt("board_num"));
+				tmp.setUsers_id(rs.getString("users_id"));
+				tmp.setBoard_title(rs.getString("board_title"));
+				tmp.setBoard_content(rs.getString("board_content"));
+				tmp.setBoard_view(rs.getInt("board_view"));
+				tmp.setBoard_comment_count(rs.getInt("board_comment_count"));
+				tmp.setBoard_up(rs.getInt("board_up"));
+				tmp.setBoard_down(rs.getInt("board_down"));
+				tmp.setBoard_date(rs.getString("board_date"));
+				
+				list.add(tmp);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return list;
+		}
+	
+	// 1-1. 제목 (row 갯수)
+	public int getWordTitleRow(BoardDto dto) {
+		//전체 row의 갯수를 담을 지역변수
+		int count = 0;
+		
+		//필요한 객체의 참조값을 담을 지역변수 만들기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection Pool에서 Connection 객체를 하나 가지고 온다.
+			conn = new DbcpBean().getConn();
+	
+			//실행할 sql 문 준비하기
+			/*
+			 * ROWNUM중에서 가장 큰 수 select하면 전체 row의 갯수가 된다.
+			 * 만약 row가 하나도 없으면 null을 리턴하기 때문에
+			 * null인 경우 0으로 바꿔줘야한다. NVL(max(ROWNUM), 0)
+			 */
+			String sql = "select NVL(max(ROWNUM), 0) as board_num"
+					+ " from tb_board where board_title like '%'|| '?' || '%'";
+			
+			pstmt = conn.prepareStatement(sql);
+	
+			//sql문 values내의 ?에 바인딩
+			pstmt.setString(1, dto.getBoard_title());
+	
+			//select문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+	
+			//반복문 돌면서 결과 값 추출하기
+			if (rs.next()) {
+				count=rs.getInt("board_num");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close(); //Connection반납
+			} catch (Exception e) {
+				}
+		}
+		return count;
+	}
+	
+	// 2. 작성자
+	public List<BoardDto> getWordUsers(BoardDto dto){
+		List<BoardDto> list=new ArrayList<>();
+		
+		//필요한 객체의 참조값을 담을 지역변수 만들기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection 객체의 참조값 얻어오기
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 준비하기
+			String sql = "select * from (select result1.*, rownum as rnum"
+					+ " from (select board_num, users_id, board_title, board_content,"
+					+ " board_view, board_comment_count, board_up, board_down,"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " from tb_board where users_id like '%'|| ? ||'%' order by board_num desc) result1)"
+					+ " where rnum between ? and ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			//sql 문에 ? 에 바인딩할 값이 있으면 바인딩하고
+			pstmt.setString(1, dto.getUsers_id());
+			pstmt.setInt(2, dto.getStartRowNum());
+			pstmt.setInt(3, dto.getEndRowNum());
+			
+			//select 문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+			
+			//반복문 돌면서 결과 값 추출하기
+			while (rs.next()) {
+				
+				BoardDto tmp = new BoardDto();
+				
+				tmp.setBoard_num(rs.getInt("board_num"));
+				tmp.setUsers_id(rs.getString("users_id"));
+				tmp.setBoard_title(rs.getString("board_title"));
+				tmp.setBoard_content(rs.getString("board_content"));
+				tmp.setBoard_view(rs.getInt("board_view"));
+				tmp.setBoard_comment_count(rs.getInt("board_comment_count"));
+				tmp.setBoard_up(rs.getInt("board_up"));
+				tmp.setBoard_down(rs.getInt("board_down"));
+				tmp.setBoard_date(rs.getString("board_date"));
+				
+				list.add(tmp);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return list;	
+	}
+	
+	// 2-1. 작성자 (row 갯수)
+	public int getWordUsersRow(BoardDto dto) {
+		//전체 row의 갯수를 담을 지역변수
+		int count=0;
+		
+		//필요한 객체의 참조값을 담을 지역변수 만들기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection Pool에서 Connection 객체를 하나 가지고 온다.
+			conn = new DbcpBean().getConn();
+
+			//실행할 sql 문 준비하기
+			/*
+			 * ROWNUM중에서 가장 큰 수 select하면 전체 row의 갯수가 된다.
+			 * 만약 row가 하나도 없으면 null을 리턴하기 때문에
+			 * null인 경우 0으로 바꿔줘야한다. NVL(max(ROWNUM), 0)
+			 */
+			String sql = "select NVL(max(ROWNUM), 0) as board_num"
+					+ " from tb_board where users_id like '%'|| '?' || '%'";
+			pstmt = conn.prepareStatement(sql);
+
+			//sql문 values내의 ?에 바인딩
+			pstmt.setString(1, dto.getUsers_id());
+
+			//select문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+
+			//반복문 돌면서 결과 값 추출하기
+			if (rs.next()) {
+				count=rs.getInt("num");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close(); //Connection반납
+			} catch (Exception e) {
+			}
+		}
+		return count;
+	}
+	
+	// 3. 제목+작성자
+	public List<BoardDto> getWordTitleUsers(BoardDto dto) {
+		
+		List<BoardDto> list=new ArrayList<>();
+		
+		//필요한 객체의 참조값을 담을 지역변수 만들기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection 객체의 참조값 얻어오기
+			conn = new DbcpBean().getConn();
+			//실행할 sql 문 준비하기
+			String sql = "select * from (select result1.*, rownum as rnum"
+					+ " from (select board_num, users_id, board_title, board_content,"
+					+ " board_view, board_comment_count, board_up, board_down,"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " from tb_board where users_id like '%'|| ? ||'%' OR"
+					+ " board_title like '%'|| ? ||'%' order by board_num desc) result1)"
+					+ " where rnum between ? and ?";
+
+			pstmt = conn.prepareStatement(sql);
+			
+			//sql 문에 ? 에 바인딩할 값이 있으면 바인딩하고
+			pstmt.setString(1, dto.getUsers_id());
+			pstmt.setString(2, dto.getBoard_title());
+			pstmt.setInt(3, dto.getStartRowNum());
+			pstmt.setInt(4, dto.getEndRowNum());
+			
+			//select 문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+			
+			//반복문 돌면서 결과 값 추출하기
+			while (rs.next()) {
+				
+				BoardDto tmp = new BoardDto();
+				
+				tmp.setBoard_num(rs.getInt("board_num"));
+				tmp.setUsers_id(rs.getString("users_id"));
+				tmp.setBoard_title(rs.getString("board_title"));
+				tmp.setBoard_content(rs.getString("board_content"));
+				tmp.setBoard_view(rs.getInt("board_view"));
+				tmp.setBoard_comment_count(rs.getInt("board_comment_count"));
+				tmp.setBoard_up(rs.getInt("board_up"));
+				tmp.setBoard_down(rs.getInt("board_down"));
+				tmp.setBoard_date(rs.getString("board_date"));
+				
+				list.add(tmp);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("오라클 sql문법 오류");
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return list;
+	}
+	
+	// 3-1. 제목+작성자 (row 갯수)
+	public int getWordTitleUsersRow(BoardDto dto) {
+		//전체 row의 갯수를 담을 지역변수
+		int count=0;
+		
+		//필요한 객체의 참조값을 담을 지역변수 만들기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			//Connection Pool에서 Connection 객체를 하나 가지고 온다.
+			conn = new DbcpBean().getConn();
+
+			//실행할 sql 문 준비하기
+			/*
+			 * ROWNUM중에서 가장 큰 수 select하면 전체 row의 갯수가 된다.
+			 * 만약 row가 하나도 없으면 null을 리턴하기 때문에
+			 * null인 경우 0으로 바꿔줘야한다. NVL(max(ROWNUM), 0)
+			 */
+			String sql = "select NVL(max(ROWNUM), 0) as board_num"
+					+ " from tb_board"
+					+ "	where board_title like '%'|| ? || '%' or users_id like '%' || ? || '%'";			
+			pstmt = conn.prepareStatement(sql);
+
+			//sql문 values내의 ?에 바인딩
+			pstmt.setString(1, dto.getBoard_title());
+			pstmt.setString(2, dto.getUsers_id());
+
+			//select문 수행하고 결과 받아오기
+			rs = pstmt.executeQuery();
+
+			//반복문 돌면서 결과 값 추출하기
+			if (rs.next()) {
+				count=rs.getInt("num");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close(); //Connection반납
+			} catch (Exception e) {
+			}
+		}
+		return count;
+	}
+	
+
+	// -----------------------------------------------
 	//return 글 목록 (+페이징)
 	public List<BoardDto> getListofReviews(BoardDto dto) {
 		
