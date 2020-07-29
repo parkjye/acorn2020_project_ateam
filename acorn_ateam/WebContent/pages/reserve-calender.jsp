@@ -2,8 +2,6 @@
 <%@page import="java.util.List"%>
 <%@page import="date.dto.DateDto"%>
 <%@page import="date.dao.DateDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%
 	DateDao dao = DateDao.getInstance();
 	List<DateDto> list = dao.getDateList();
