@@ -110,12 +110,7 @@
 		if(totalPageCount < endPageNum){
 			endPageNum=totalPageCount; //보정해준다. 
 		}
-		//dto객체
-		BoardDto dto = new BoardDto();
-		dto.setStartRowNum(startRowNum);
-		dto.setEndRowNum(endRowNum);
-		
-		List<BoardDto> list = BoardDao.getInstance().getListofReviews(dto);
+
 		%>
   <!DOCTYPE html>
   <html>
