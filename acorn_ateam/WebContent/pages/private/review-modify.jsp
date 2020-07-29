@@ -25,7 +25,7 @@
 <%if(isSuccess){ %>
 <script>
 	alert("성공적으로 수정했습니다.");
-	location.href="review-modify-form.jsp?board_num=<%=board_num %>";
+	location.href="../review-detail.jsp?board_num=<%=board_num %>";
 </script>
 <%} else {%>
 	<script>
