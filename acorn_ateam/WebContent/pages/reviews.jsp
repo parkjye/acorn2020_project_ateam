@@ -151,6 +151,7 @@
         <%if(users_id != null) {%>
         <button onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">글쓰기</button>
         <%} %>
+        
         <div class="tableWrap">
           <table class="table">
             <thead>
@@ -190,6 +191,7 @@
         
 		<!-- 키워드 검색 -->
 		<form action="reviews.jsp" method="get">
+			<button onclick="location.href='reviews.jsp'">목록 보기</button>
 			<label for="condition">검색 조건</label>
 			<select name="condition" id="condition">
 				<option value="title_users" <%if(condition.equals("title_users")){%>selected<%} %>>작성자+제목</option>
