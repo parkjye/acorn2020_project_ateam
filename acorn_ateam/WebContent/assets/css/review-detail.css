@@ -71,6 +71,14 @@
 {
   /* background-color: rgba(30, 39, 46,0.1); */
 }
+.flex__columns:nth-child(3)
+{
+  /* background-color: rgba(30, 39, 46,0.1); */
+  display: flex;
+  width: 100%;
+  min-height: 800px;
+  border: 1px solid black;
+}
 .contentWrap{
 
 }

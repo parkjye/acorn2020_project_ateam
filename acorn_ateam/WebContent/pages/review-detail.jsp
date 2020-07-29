@@ -73,7 +73,7 @@
 
         <div class="flex__columns__column">
           <%if(users_id != null) {%>
-            <a href="review-modify-form.jsp?num=<%=dto.getBoard_num() %>"><i class="fas fa-cog"></i>수정</a>
+            <a href="private/review-modify-form.jsp?board_num=<%=dto.getBoard_num() %>"><i class="fas fa-cog"></i>수정</a>
             <a href="javascript:deleteConfirm(<%=dto.getBoard_num() %>)"><i class="fas fa-cog"></i>삭제</a>
           <%} %>
         </div>
@@ -83,9 +83,7 @@
       <div class="flex__columns">
         <!-- 본문 -->
         <div class="contentWrap">
-          <input type="hidden" name="board_content" value="<%=dto.getBoard_content()%>" />
-          <div><%=dto.getBoard_content() %></div>
-          <!-- comment(댓글) 추가 -->
+          <%=dto.getBoard_content() %>
         </div>
       </div>
     </div>

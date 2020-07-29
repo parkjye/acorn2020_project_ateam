@@ -113,7 +113,7 @@
                 <td><%=tmp.getBoard_num() %></td>
      
                 <td>
-                  <a href="review-detail.jsp?num=<%=tmp.getBoard_num() %>"><%=tmp.getBoard_title() %></a>
+                  <a href="review-detail.jsp?board_num=<%=tmp.getBoard_num() %>"><%=tmp.getBoard_title() %></a>
                   <td><%=tmp.getBoard_comment_count() %></td>
                 </td>
 
@@ -126,31 +126,30 @@
               <%} %>
             </tbody>
           </table>
-					<div class="pagingWrap">
-						<ul>			
-						<%if(startPageNum != 1) {%>
-							<li><a href="reviews.jsp?pageNum=<%=startPageNum-1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>
-						<%} else {%>
-							<li><a href="javascript:"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>					
-						<%} %>
-						
-						<%for(int i=startPageNum; i<=endPageNum; i++){ %>
-							<% if(i==pageNum) {%>
-								<li><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
-							<%} else{%>
-								<li><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
-							<%} %>
-						<%} %>
-						
-						<% if(endPageNum < totalPageCount){%>
-							<li><a href="reviews.jsp?pageNum=<%=endPageNum+1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
-						<%} else {%>
-							<li><a href=""><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
-						<%} %>
-						</ul>
-					</div>
         </div>
-        <!-- tableWrap -->
+		<div class="pagingWrap">
+			<ul>			
+			<%if(startPageNum != 1) {%>
+				<li><a href="reviews.jsp?pageNum=<%=startPageNum-1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>
+			<%} else {%>
+				<li><a href="javascript:"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>					
+			<%} %>
+			
+			<%for(int i=startPageNum; i<=endPageNum; i++){ %>
+				<% if(i==pageNum) {%>
+					<li class="paging__active"><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
+				<%} else{%>
+					<li><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
+				<%} %>
+			<%} %>
+			
+			<% if(endPageNum < totalPageCount){%>
+				<li><a href="reviews.jsp?pageNum=<%=endPageNum+1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
+			<%} else {%>
+				<li><a href=""><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
+			<%} %>
+			</ul>
+		</div>
       </div>
     	<jsp:include page="templates/footer.jsp"></jsp:include>
     </body>

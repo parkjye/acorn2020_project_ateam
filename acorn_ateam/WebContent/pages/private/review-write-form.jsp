@@ -13,7 +13,7 @@
 			<div class="form-group">
 				<label for="title">제목</label>
 				<input type="text" name="board_title" id="title"/>
-				<textarea name="board_content" id="content" cols="100" rows="10"></textarea>
+				<textarea name="board_content" id="board_content" cols="100" rows="10"></textarea>
 			</div>
 
 			<button type="submit" onclick="submitContents(this);">등록</button>
@@ -31,7 +31,7 @@
 	
 	nhn.husky.EZCreator.createInIFrame({
 		oAppRef: oEditors,
-		elPlaceHolder: "content",
+		elPlaceHolder: "board_content",
 		sSkinURI: "${pageContext.request.contextPath}/SmartEditor/SmartEditor2Skin.html",	
 		htParams : {
 			bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
@@ -51,18 +51,18 @@
 	
 	function pasteHTML() {
 		var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-		oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
+		oEditors.getById["board_content"].exec("PASTE_HTML", [sHTML]);
 	}
 	
 	function showHTML() {
-		var sHTML = oEditors.getById["content"].getIR();
+		var sHTML = oEditors.getById["board_content"].getIR();
 		alert(sHTML);
 	}
 	
 	//폼에 저장 버튼을 누르면 호출되는 함수
 	//<button type="submit" onclick="submitContents(this);">저장</button>
 	function submitContents(elClickedObj) {
-		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		oEditors.getById["board_content"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 		//태그
 		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("content").value를 이용해서 처리하면 됩니다.
 		
@@ -74,7 +74,7 @@
 	function setDefaultFont() {
 		var sDefaultFont = '궁서';
 		var nFontSize = 24;
-		oEditors.getById["content"].setDefaultFont(sDefaultFont, nFontSize);
+		oEditors.getById["board_content"].setDefaultFont(sDefaultFont, nFontSize);
 	}
 </script>
 </body>
