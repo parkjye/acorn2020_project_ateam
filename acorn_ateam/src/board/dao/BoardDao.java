@@ -19,9 +19,8 @@ public class BoardDao {
 		}
 		return dao;
 	}
-	
-	// -------1. 제목 / 2. 작성자 / 3. 제목+작성자----------------
-	// ---------- 키워드 검색 관련 메소드 ----------
+
+	// ---------- 키워드 검색 메소드 ----------
 	// 1. 제목
 	public List<BoardDto> getWordTitle(BoardDto dto){
 		
@@ -363,8 +362,7 @@ public class BoardDao {
 		return count;
 	}
 	
-
-	// -----------------------------------------------
+	
 	//return 글 목록 (+페이징)
 	public List<BoardDto> getListofReviews(BoardDto dto) {
 		
@@ -383,7 +381,7 @@ public class BoardDao {
 			String sql = "SELECT * from (select result1.*, rownum as rnum"
 					+ " from (select board_num, users_id, board_title,"
 					+ " board_view, board_comment_count, board_up, board_down,"
-					+ " to_char(board_date, 'yy/mm/dd hh24:mi') as board_date"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
 					+ " from tb_board order by board_num desc) result1)"
 					+ " where rnum between ? and ?";
 			
@@ -445,7 +443,7 @@ public class BoardDao {
 			//실행할 sql 문 준비하기
 			String sql = "select board_num, users_id, board_title, board_content,"
 					+ " board_view, board_up, board_down,"
-					+ " to_char(board_date, 'yy/mm/dd hh24:mi') as board_date"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
 					+ " from tb_board"
 					+ " where board_num=?";
 

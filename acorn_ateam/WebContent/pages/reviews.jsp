@@ -218,7 +218,7 @@
 			<% if(endPageNum < totalPageCount){%>
 				<li><a href="reviews.jsp?pageNum=<%=endPageNum+1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
 			<%} else {%>
-				<li><a href=""><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
+				<li><a href="javascript:"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
 			<%} %>
 			</ul>
 		</div>
