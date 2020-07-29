@@ -187,42 +187,50 @@
             </tbody>
           </table>
         </div>
+        
 		<!-- 키워드 검색 -->
-			<form action="reviews.jsp" method="get">
-				<label for="condition">검색조건</label>
-				<select name="condition" id="condition">
-					<!-- --><option value="title_users" <%if(condition.equals("title_users")){%>selected<%} %>>작성자+제목</option>
-					<option value="board_title" <%if(condition.equals("board_title")){%>selected<%} %>>제목</option>
-					<option value="users_id" <%if(condition.equals("users_id")){%>selected<%} %>>작성자</option>
-				</select>
-				<input type="text" name="keyword" placeholder="검색어 입력"/>
-				<button type="submit">검색</button>
-			</form>
+		<form action="reviews.jsp" method="get">
+			<label for="condition">검색 조건</label>
+			<select name="condition" id="condition">
+				<option value="title_users" <%if(condition.equals("title_users")){%>selected<%} %>>작성자+제목</option>
+				<option value="board_title" <%if(condition.equals("board_title")){%>selected<%} %>>제목</option>
+				<option value="users_id" <%if(condition.equals("users_id")){%>selected<%} %>>작성자</option>
+			</select>
+			<input type="text" name="keyword" placeholder="검색어 입력"/>
+			<button type="submit">검색</button>
+		</form>
 
+		<!-- 페이징 -->
 		<div class="pagingWrap">
 			<ul>			
 			<%if(startPageNum != 1) {%>
-				<li><a href="reviews.jsp?pageNum=<%=startPageNum-1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>
-			<%} else {%>
-				<li><a href="javascript:"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a></li>					
+				<li>
+					<a href="reviews.jsp?pageNum=<%=startPageNum-1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">
+					<img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-left.png" alt="arrow-left" /></a>
+				</li>
 			<%} %>
 			
 			<%for(int i=startPageNum; i<=endPageNum; i++){ %>
 				<% if(i==pageNum) {%>
-					<li class="paging__active"><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
+					<li class="paging__active">
+						<a href="reviews.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a>
+					</li>
 				<%} else{%>
-					<li><a href="reviews.jsp?pageNum=<%=i %>"><%=i %></a></li>
+					<li>
+						<a href="reviews.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a>
+					</li>
 				<%} %>
 			<%} %>
 			
 			<% if(endPageNum < totalPageCount){%>
-				<li><a href="reviews.jsp?pageNum=<%=endPageNum+1 %>"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
-			<%} else {%>
-				<li><a href="javascript:"><img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a></li>
+				<li>
+					<a href="reviews.jsp?pageNum=<%=endPageNum+1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">
+					<img class="arrow" src="${pageContext.request.contextPath}/assets/images/arrow-right.png" alt="arrow-right" /></a>
+				</li>
 			<%} %>
 			</ul>
 		</div>
-      </div>
+      </div> <!-- section subPage -->
     	<jsp:include page="templates/footer.jsp"></jsp:include>
     </body>
   </html>
