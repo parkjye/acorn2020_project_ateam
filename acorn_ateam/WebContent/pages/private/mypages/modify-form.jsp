@@ -4,7 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
 	String users_id=(String)session.getAttribute("users_id");
 	UsersDto dto=UsersDao.getInstance().getData(users_id);
 %>
@@ -16,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-	<form action="update.jsp" method="post">
+	<form action="modify-info.jsp" method="post">
 		<div class="form-group">
 			<label for="id">아이디</label>
 			<input type="text" id="users_id" value="<%=dto.getUsers_id() %>" disabled />

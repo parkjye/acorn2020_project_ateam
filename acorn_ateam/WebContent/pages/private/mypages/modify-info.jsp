@@ -29,12 +29,12 @@
 %>
 <script>
 	alert("수정 완료");
-	location.href="${pageContext.request.contextPath }/mypage.jsp";
+	location.href="${pageContext.request.contextPath }/pages/private/mypages/main.jsp";
 </script>
 <%}else{ %>
 <script>
 	alert("수정 실패");
-	location.href="${pageContext.request.contextPath }/update-form.jsp";
+	location.href="${pageContext.request.contextPath }/pages/private/mypages/update-form.jsp";
 </script>
 <%} %>
 </body>

@@ -46,7 +46,7 @@
 			</div>
 			<div class="flex__columns">
 				<!-- modify-form -->
-				<a href="">회원 정보 수정</a>
+				<a href="modify-form.jsp">회원 정보 수정</a>
 				<!-- "my-reservation -->
 				<a href="">예약현황</a>
 				<!-- ../delete.jsp -->

@@ -160,7 +160,7 @@ public class UsersDao {
 		int flag = 0;
 		try {
 			conn = new DbcpBean().getConn();
-			String sql = "update tb_users set users_pwd=? and users_phone=? and users_email=? where users_id=?";
+			String sql = "update tb_users set users_pwd=?,users_phone=?, users_email=? where users_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getUsers_pwd());
 			pstmt.setString(2, dto.getUsers_phone());
