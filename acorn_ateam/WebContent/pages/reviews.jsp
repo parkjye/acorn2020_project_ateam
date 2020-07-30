@@ -78,6 +78,7 @@
 				dto.setUsers_id(keyword);
 				
 				list = dao.getWordTitleUsers(dto);
+				System.out.println("토탈로우 진입전");
 				totalRow = dao.getWordTitleUsersRow(dto);
 				
 			}else if(condition.equals("board_title")){ //제목
@@ -97,6 +98,8 @@
 			list = dao.getListofReviews(dto);
 			totalRow = dao.getCount();
 		}
+		System.out.println(totalRow);
+		
 		
 		//-------------------------------System.out.println(list);-------
 		//전체 페이지의 갯수 구하기
@@ -110,7 +113,8 @@
 		if(totalPageCount < endPageNum){
 			endPageNum=totalPageCount; //보정해준다. 
 		}
-
+    
+    
 		%>
   <!DOCTYPE html>
   <html>
@@ -148,10 +152,6 @@
       <jsp:include page="templates/nav.jsp"></jsp:include>
 
       <div class="section subPage">
-        <%if(users_id != null) {%>
-        <button onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">글쓰기</button>
-        <%} %>
-        
         <div class="tableWrap">
           <table class="table">
             <thead>
@@ -188,7 +188,11 @@
             </tbody>
           </table>
         </div>
-        
+        <div class="button__writer__btn">
+					<%if(users_id != null) {%>
+						<button class="myButton" onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">후기쓰기</button>
+						<%} %>
+				</div>
 		<!-- 키워드 검색 -->
 		<form action="reviews.jsp" method="get">
 			<button onclick="location.href='reviews.jsp'">목록 보기</button>

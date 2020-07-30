@@ -24,22 +24,28 @@
   <body>
     <jsp:include page="templates/nav.jsp"></jsp:include>
 
-    <!--로그인 페이지-->
-    <div class="login__container">
-      <div class="login__container__wrapper">
-        <h3>Wellcome! A 펜션에 오신 것을 환영합니다/</h3>
-        <form action="login.jsp" method="post">
-          <div class="form-group">
-            <input type="text" name="users_id" id="users_id" placeholder="아이디를 입력해주세요" />
-          </div>
-          <div class="form-group">
-            <input type="password" name="users_pwd" id="users_pwd" placeholder="비밀번호를 입력해주세요" />
-          </div>
-          <div class="form-group">
-            <button class="login__submit" type="submit">로그인</button>
-          </div>
-        </form>
+      <!--로그인 페이지-->
+      <div class="login__container">
+        <div class="login__container__wrapper">
+          <h3> 🎉 A 펜션에 오신 것을 환영합니다 🎉</h3>
+          <form action="login.jsp" method="post">
+            <div class="form-group">
+              <input type="text" name="users_id" id="users_id" placeholder="아이디를 입력해주세요" />
+            </div>
+            <div class="form-group">
+              <input type="password" name="users_pwd" id="users_pwd" placeholder="비밀번호를 입력해주세요" />
+            </div>
+            <div class="form-group">
+              <button class="login__submit" type="submit">로그인</button>
+            </div>
+            <div class="form-group">
+              <div class="image__wrapper">
+                <img src="../assets/images/char.gif" alt="움직이는사진">
+                <p>Designed by - Markus Magnusson</p>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
   </body>
 </html>

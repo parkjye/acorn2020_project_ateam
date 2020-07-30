@@ -16,6 +16,7 @@
   margin: 2px 0;
   border: 1px solid #000;
 }
+
 #sideBar a {
   color: #f6f0e4;
   width: 100%;
@@ -24,8 +25,7 @@
   justify-content: center;
   align-items: center;
 }
-
-#sideBar li:hover {
+#sideBar li:not(:first-child):hover{
   cursor: pointer;
   background-color: orange;
   transition: all 350ms ease-in-out;

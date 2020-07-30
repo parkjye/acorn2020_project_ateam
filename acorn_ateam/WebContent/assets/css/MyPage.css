@@ -1,0 +1,40 @@
+.myPage__container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .myPage__container__wrapper {
+    min-width: 600px;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -70%);
+    height: 600px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 18px 21px 31px -10px rgba(123,175,164,1);
+  }
+  .myPage__container__wrapper *{
+      margin: 10px 0;
+  }
+  .myPage__container__wrapper .flex__columns:nth-child(4)
+  {
+      margin: 30px;
+  }
+  .myPage__container__wrapper .flex__columns:nth-child(4) *
+  {
+      margin: 0 10px;
+  }
+  .myPage__container__wrapper .flex__columns a{
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 30px;
+  }

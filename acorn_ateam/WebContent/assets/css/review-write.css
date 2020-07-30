@@ -1,0 +1,33 @@
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  /* background-color: red; */
+  /* background-color: blue; */
+}
+.flex-column *{
+  margin: 5px 0;
+}
+.flex__columns{
+  /* width: 100%; */
+  
+}
+.home{
+  background-color: white;
+}
+.flex__columns:nth-child(2){
+  
+  width: 90%;
+  /* background-color: red; */
+}
+.flex__columns:nth-child(3) > * 
+{
+  margin: 0 10px;
+}
+#board_content{
+  min-height: 550px;
+  width: 100%;
+}

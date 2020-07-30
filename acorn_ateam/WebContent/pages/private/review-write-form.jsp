@@ -5,22 +5,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Reset.css?v=<%=System.currentTimeMillis() %>" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css?v=<%=System.currentTimeMillis() %>" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Navbar.css?v=<%=System.currentTimeMillis() %>" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/SideBar.css?v=<%=System.currentTimeMillis() %>" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Footer.css?v=<%=System.currentTimeMillis() %>" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/review-write.css?v=<%=System.currentTimeMillis() %>" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/c0a9fdc19a.js"></script>
+
+	<script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
 </head>
 <body>
-<div class="wrap">
-	<div class="content">
-		<form action="review-write.jsp" method="post">
-			<div class="form-group">
-				<label for="title">제목</label>
-				<input type="text" name="board_title" id="title"/>
-				<textarea name="board_content" id="board_content" cols="100" rows="10"></textarea>
-			</div>
+	<jsp:include page="../templates/nav.jsp"></jsp:include>
 
-			<button type="submit" onclick="submitContents(this);">등록</button>
-			<button type="reset">취소</button>
-		</form>
+
+	<div class="section subPage">
+		<div class="home">
+			<form class="flex-column" action="review-write.jsp" method="post">
+				<div class="flex__columns">
+					<label for="title">제목</label>
+					<input type="text" name="board_title" id="title"/>
+				</div>
+				<div class="flex__columns">
+					<textarea name="board_content" id="board_content" cols="100" rows="10"></textarea>
+				</div>
+				<div class="flex__columns">
+					<button class="myButton" type="submit" onclick="submitContents(this);">등록</button>
+					<button class="myButton-cancle" type="reset">취소</button>
+				</div>
+			</form>
+		</div>
 	</div>
-</div>
+
+	<jsp:include page="../templates/footer.jsp"></jsp:include>
+
 
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 <script>

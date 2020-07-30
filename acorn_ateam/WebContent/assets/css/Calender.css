@@ -19,29 +19,3 @@ body{
   right: 0;
   margin-top: 30px;
 }
-.myButton {
-	box-shadow: 0px 7px 14px -2px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	border-radius:11px;
-	border:1px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:14px;
-	font-style:italic;
-	padding:9px 19px;
-  text-decoration:none;
-}
-.myButton:hover {
-  background:linear-gradient(to bottom, #9cfd6c 5%, #77b55a 100%);
-  /* background-color:#77b55a; */
-  /* transition: all 350ms ease-in; */
-  transition: all 350ms ease-in-out;
-  
-}
-.myButton:active {
-	/* position:relative; */
-	/* top:1px; */
-}

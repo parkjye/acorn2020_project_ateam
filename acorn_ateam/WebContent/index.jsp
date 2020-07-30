@@ -38,7 +38,7 @@
       <div class="container">
         <ul>
           
-          <li><a href="${pageContext.request.contextPath}/pages/introduce.jsp"><i class="fas fa-book"></i></a></li>
+          <li><i class="fas fa-book"></i></li>
           <li><a href="${pageContext.request.contextPath}/pages/reserve-calender.jsp"><i class="far fa-calendar-alt"></i></a></li>
           <li><a href="${pageContext.request.contextPath}/pages/reviews.jsp"><i class="fas fa-clipboard-list"></i></a></li>
         </ul>
@@ -63,16 +63,16 @@
         <div class="home__container__card">
           <ul class="room__cards">
             <li class="room__rows">
-              <img src="./assets/images/room1.jpg" alt="" />
+              <img id="room1" src="./assets/images/room1.jpg" alt="" />
             </li>
             <li class="room__rows">
-              <img src="./assets/images/room2.jpg" alt="" />
+              <img id="room2" src="./assets/images/room2.jpg" alt="" />
             </li>
             <li class="room__rows">
-              <img src="./assets/images/room3.jpg" alt="" />
+              <img id="room3" src="./assets/images/room3.jpg" alt="" />
             </li>
             <li class="room__rows">
-              <img src="./assets/images/room4.jpg" alt="" />
+              <img id="room4" src="./assets/images/room4.jpg" alt="" />
             </li>
           </article>
         </div>
@@ -86,15 +86,17 @@
           <button class="openWhereModalBtn">위치 찾기</button>
         </div>
         <div class="main__container__column">
-          <a href="">자세히보기</a>
+          <button disabled>자세히 보기</button>
+          <!-- <a href="">자세히보기</a> -->
         </div>
         <div class="main__container__column">
-          <a href="">주변 식당</a>
+          <button class="openFoodModalBtn">주변 식당</button>
+          <!-- <a href="">주변 식당</a> -->
         </div>
       </div>
     </section>
 
-    <article id="whereModal" class="hidden">
+    <article id="whereModal" class="whereModal hidden">
       <div class="modal__overaly"></div>
       <div class="modal__content flex-column">
           <button class="modal__close__btn">X</button>
@@ -103,7 +105,6 @@
           </div>
           <div class="flex__rows">
             <div id="map"></div>
-
           </div>  
           <div class="flex__rows">
             <a href="https://map.kakao.com/link/to/삼원타워,37.4987345,127.0316116" target="__blank">길찾기</a>
@@ -123,12 +124,31 @@
      </div>
     </article>
 
-    
+    <article id="foodModal" class="whereModal hidden">
+      <div class="modal__overaly"></div>
+      <div class="modal__content flex-column">
+          <button class="modal__close__btn">X</button>
+          <div id="modal__top">
+            <h4>주인장이 추천하는 음식</h4>
+          </div>
+          <div class="flex__rows">
+            <div id="map2"></div>
+          </div>  
+          <div class="flex__rows">
+            <a href="https://map.kakao.com/link/to/역전우동,37.497554, 127.032973" target="__blank">역전우동</a>
+            <a href="https://map.kakao.com/link/to/버거킹,37.498882, 127.027533" target="__blank">버거킹</a>
+          </div>
+        </div>
+     </div>
+    </article>
 
     
     <!-- food -->
     <section id="food" class="section">
-      <div class="__title">
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis debitis eveniet at quas libero recusandae. Dignissimos maxime distinctio voluptates a similique minus autem corrupti illum quibusdam quod perferendis, dolorum laudantium.</p>
+
+      <!-- <div class="__title">
         <h1>Food</h1>
         <div class="__title__line animate__animated animate__pulse animate__infinite"></div>
       </div>
@@ -170,7 +190,7 @@
             <a href="#">➡Find</a>
           </div>
         </li>
-      </ul>
+      </ul> -->
     </section>
     <jsp:include page="pages/templates/footer.jsp"></jsp:include>
 

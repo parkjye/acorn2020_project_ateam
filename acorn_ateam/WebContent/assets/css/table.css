@@ -6,6 +6,7 @@ table.table {
     border-top: 1px solid #ccc;
     margin : 20px 10px;
     border-spacing: 0;
+    background-color: white;
      
 }
 table.table tbody tr:hover {
@@ -29,9 +30,19 @@ table.table td {
 
     /* rgb(123, 175, 164); */
 }
+.button__writer__btn{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    margin-bottom: 20px;
+
+}
 .tableWrap{
-	height: 600px;
-    min-height: 600px;
+	height: 550px;
+    min-height: 550px;
+}
+.pagingWrap{
+    margin-top: 20px;
 }
 .pagingWrap ul{
     display: flex;

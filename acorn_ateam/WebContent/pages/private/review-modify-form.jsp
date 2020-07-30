@@ -15,44 +15,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Reset.css?v=<%=System.currentTimeMillis() %>" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css?v=<%=System.currentTimeMillis() %>" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Navbar.css?v=<%=System.currentTimeMillis() %>" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/SideBar.css?v=<%=System.currentTimeMillis() %>" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Footer.css?v=<%=System.currentTimeMillis() %>" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/review-write.css?v=<%=System.currentTimeMillis() %>" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/c0a9fdc19a.js"></script>
+
+<script defer src="${pageContext.request.contextPath}/assets/js/navBar.js?v=<%=System.currentTimeMillis() %>"></script>
+
+
 </head>
 <body>
-	<form action="review-modify.jsp" method="post">
-		<div class="form-group"> </div>
-			<!-- board_num은 사용자에게 hidden -->
-			<input type="hidden" name="board_num" value="<%=dto.getBoard_num()%>"/>
-		
-			<!-- label은 구분을 위해 임시로 작성했습니다. -->
-			<label for="board_title">제목</label>
-			<input type="text" name="board_title" id="board_title" value="<%=dto.getBoard_title()%>"/>
-			
-			<input type="hidden" name="board_date" value="<%=dto.getBoard_date() %>"/>
-			<label for="board_date">날짜</label>
-			<input type="text" id="board_date" value="<%=dto.getBoard_date() %>" disabled/>
-			
-			<input type="hidden" name=board_view value="<%=dto.getBoard_view() %>"/>
-			<label for="board_view">조회수</label>
-			<input type="text" id="board_view" value="<%=dto.getBoard_view() %>" disabled/>
-			
-			<input type="hidden" name=board_up value="<%=dto.getBoard_up() %>"/>
-			<label for="board_up">추천</label>
-			<input type="text" id="board_up" value="<%=dto.getBoard_up() %>" disabled/>
-			
-			<input type="hidden" name=board_down value="<%=dto.getBoard_down() %>"/>
-			<label for="board_down">비추</label>
-			<input type="text" id="board_down" value="<%=dto.getBoard_down() %>" disabled/>
 
-			<label for="board_content">내용</label>
-			<textarea name="board_content" id="board_content" cols="100" rows="10"><%=dto.getBoard_content() %></textarea>
-			
-			<!-- comment(댓글) 추가 -->
-			
-		<div class="buttonWrap">
-			<button type="submit" onclick="submitContents(this);">수정</button>
-			<button type="button" onclick="location.href='${pageContext.request.contextPath}/pages/review-detail.jsp?board_num=<%=board_num%>'">취소</button>
+	<jsp:include page="../templates/nav.jsp"></jsp:include>
+
+	<div class="section subPage">
+		<div class="home">
+			<form class="flex-column" action="review-modify.jsp" method="post">
+				<div class="flex__columns">
+					<!-- board_num은 사용자에게 hidden -->
+					<input type="hidden" name="board_num" value="<%=dto.getBoard_num()%>"/>
+					<!-- label은 구분을 위해 임시로 작성했습니다. -->
+					<label for="board_title">제목</label>
+					<input type="text" name="board_title" id="board_title" value="<%=dto.getBoard_title()%>"/>
+				</div>
+
+				<div class="flex__columns">
+					<textarea name="board_content" id="board_content" cols="100" rows="10"><%=dto.getBoard_content() %></textarea>
+				</div>
+
+				<div class="flex__columns">
+					<button class="myButton" type="submit" onclick="submitContents(this);">수정</button>
+					<button class="myButton-cancle"  type="button" onclick="location.href='${pageContext.request.contextPath}/pages/review-detail.jsp?board_num=<%=board_num%>'">취소</button>
+				</div>	
+			</form>
 		</div>
-	</form>
+	</div>
 
+
+
+
+	<jsp:include page="../templates/footer.jsp"></jsp:include>
 <!-- SmartEditor  -->
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 <script>

@@ -1,43 +1,56 @@
-var calendar = new tui.Calendar("#calendar", {
-  defaultView: "month",
+
+//tui.calendar는 인터넷에서 다운받은 script. tui.Calendar 객체를 생성해서 사용한다.
+var calendar = new tui.Calendar('#calendar', {
+  defaultView: 'month',
   taskView: true,
+  //
+  //useCreationPopup: true,
+  useDetailPopup: true,
+  //
   template: {
-    monthDayname: function (dayname) {
-      return '<span class="calendar-week-dayname-name">' + dayname.label + "</span>";
-    },
-  },
+    monthDayname: function(dayname) {
+      return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+    }
+    
+  }
 });
-calendar.on("clickMore", function (event) {
-  console.log("clickMore", event.date, event.target);
-});
-// calendar.on("clickSchedule", function (event) {
-//   var schedule = event.schedule;
 
-//   if (lastClickSchedule) {
-//     calendar.updateSchedule(lastClickSchedule.id, lastClickSchedule.calendarId, {
-//       isFocused: false,
-//     });
-//   }
-//   calendar.updateSchedule(schedule.id, schedule.calendarId, {
-//     isFocused: true,
-//   });
-
-//   lastClickSchedule = schedule;
-//   // open detail view
-// });
-calendar.toggleScheduleView(false);
-calendar.toggleTaskView(false);
-// calendar.setOptions(disableClick, true);
-// calendar.setOptions(isReadOnly, true);
-
+//예약현황 Data
 calendar.createSchedules([
   {
-    id: "1",
-    calendarId: "1",
-    title: "my schedule",
-    category: "time",
-    dueDateClass: "",
-    start: "2020-07-24T22:30:00+09:00",
-    end: "2020-07-24T02:30:00+09:00",
+      id: '1',
+      scheduleId: 'test',
+      calendarId: 'Reservated', //삭제할 일정 ID
+      title: '예약 됨',
+      category: 'allday', //종류('milestone', 'task', allday', 'time')
+      dueDateClass: '',
+      start: '2020-07-26',
+      end: '2020-07-27',
+      isReadOnly: false, //읽기전용
   },
+  {
+      id: '2',
+      calendarId: 'Reservation Available',
+      title: '예약 가능',
+      category: 'allday',
+      dueDateClass: '',
+      start: '2020-07-25',
+      end: '2020-07-25',
+      isReadOnly: true
+  }
 ]);
+
+//스케줄 CSS
+calendar.setCalendarColor('Reservated', {
+  color: '#c1c1d7', //회색
+  bgColor: '#ffffff',
+  //dragBgColor: '#000000',
+  borderColor: '#0000ff' //blue
+});
+
+calendar.setCalendarColor('Reservation Available', {
+  color: '#000000', //회색
+  bgColor: '#ffffff',
+  //dragBgColor: '#000000',
+  borderColor: '#ff0000' //red
+});

@@ -23,13 +23,13 @@
   <body>
     <jsp:include page="templates/nav.jsp"></jsp:include>
     <!--로그인 페이지-->
-    <div class="signin__container">
+    <div class="signin__container">	
       <div class="signin__container__wrapper">
-        <h3>Wellcome! A 펜션에 오신 것을 환영합니다/</h3>
+        <h3>🎉 가입을 환영합니다 🎉</h3>
         <form action="signup.jsp" method="post" name="signup" onsubmit="return formTest()" id="myform">
           <div class="form-group">
             <input type="text" name="users_id" id="users_id" placeholder="아이디를 입력해주세요" />
-            <button id="idcheck" >중복확인</button>
+            <button id="idcheck"  >중복확인</button>
             <span id="checkResult"></span>
           </div>
           <div class="form-group">
@@ -47,7 +47,13 @@
           <div class="form-group">
             <button class="login__submit" type="submit">회원가입</button>
             <button class="login__submit" type="submit">취소</button>
-          </div>
+					</div>
+					<div class="form-group">
+						<div class="image__wrapper">
+							<img src="../assets/images/char.gif" alt="움직이는사진">
+							<p>Designed by - Markus Magnusson</p>
+						</div>
+					</div>
         </form>
       </div>
     </div>

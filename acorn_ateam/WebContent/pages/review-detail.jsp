@@ -38,15 +38,15 @@
       <!-- label은 구분을 위해 임시로 작성했습니다. -->
       <input type="hidden" name="board_num" value="<%=dto.getBoard_num()%>" />
       <div class="board__detail__container">
-      <div class="flex__columns">
-        <!-- <div class="board__detail__divider"></div> -->
-        <input type="hidden" name="board_title" value="<%=dto.getBoard_title()%>" />
-        <span class="board__detail__title">"<%=dto.getBoard_title()%></span>
-        <span class="board__detail__num"><%=dto.getBoard_num() %></span>
-      </div>
+        <div class="flex__columns">
+          <!-- <div class="board__detail__divider"></div> -->
+          <input type="hidden" name="board_title" value="<%=dto.getBoard_title()%>" />
+          <span class="board__detail__title"><%=dto.getBoard_title()%></span>
+          <span class="board__detail__num"><%=dto.getBoard_num() %></span>
+        </div>
 
-      <div class="flex__columns">
-        <div class="flex__columns__column">
+        <div class="flex__columns">
+          <div class="flex__columns__column">
           <!-- <div class="board__detail__divider"></div> -->
           <!-- 작성자 -->
           <input type="hidden" name="users_id" value="<%=dto.getUsers_id() %>" />
@@ -69,21 +69,20 @@
         </div>
 
         <div class="flex__columns__column">
-          <%if(users_id != null) {%>
-            <a href="private/review-modify-form.jsp?board_num=<%=dto.getBoard_num() %>"><i class="fas fa-cog"></i>수정</a>
-            <a href="javascript:deleteConfirm(<%=dto.getBoard_num() %>)"><i class="fas fa-cog"></i>삭제</a>
-          <%} %>
+        <%if(users_id != null) {%>
+        <a href="private/review-modify-form.jsp?board_num=<%=dto.getBoard_num() %>"><i class="fas fa-cog"></i>수정</a>
+        <a href="javascript:deleteConfirm(<%=dto.getBoard_num() %>)"><i class="far fa-trash-alt"></i>삭제</a>
+        <%} %>
+        </div>
+        </div>
+        
+        <div class="flex__columns">
+          <!-- 본문 -->
+          <div class="contentWrap">
+            <%=dto.getBoard_content() %>
+          </div>
         </div>
       </div>
-
-
-      <div class="flex__columns">
-        <!-- 본문 -->
-        <div class="contentWrap">
-          <%=dto.getBoard_content() %>
-        </div>
-      </div>
-    </div>
     </div>
     <jsp:include page="templates/footer.jsp"></jsp:include>
 

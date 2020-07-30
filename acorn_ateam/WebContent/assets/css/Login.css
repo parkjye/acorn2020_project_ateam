@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: white; */
 }
 .login__container__wrapper {
   position: absolute;
@@ -12,11 +13,13 @@
   top: 50%;
   transform: translate(-50%, -50%);
   height: 500px;
-  background-color: #f6f0e4;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 30px;
+  box-shadow: 18px 21px 31px -10px rgba(123,175,164,1);
 }
 .login__container__wrapper form {
   width: 100%;
@@ -49,4 +52,20 @@
   height: 60px;
   border-radius: 5px;
   background-color: #7bafa4;
+}
+.login__container__wrapper .image__wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.image__wrapper p{
+  font-size: 4px;
+  color: #7bafa4;
+}
+img{
+  width: auto; height: auto;
+  max-width: 300px;
+  max-height: 300px;
 }
