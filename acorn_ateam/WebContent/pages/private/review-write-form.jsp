@@ -35,7 +35,7 @@
 				</div>
 				<div class="flex__columns">
 					<button class="myButton" type="submit" onclick="submitContents(this);">등록</button>
-					<button class="myButton-cancle" type="reset">취소</button>
+					<button class="myButton-cancle"  type="button" onclick="location.href='${pageContext.request.contextPath}/pages/reviews.jsp'">취소</button>
 				</div>
 			</form>
 		</div>

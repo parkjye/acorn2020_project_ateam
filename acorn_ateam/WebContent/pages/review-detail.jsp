@@ -69,7 +69,7 @@
         </div>
 
         <div class="flex__columns__column">
-        <%if(users_id != null) {%>
+        <%if(dto.getUsers_id().equals(users_id)) {%>
         <a href="private/review-modify-form.jsp?board_num=<%=dto.getBoard_num() %>"><i class="fas fa-cog"></i>수정</a>
         <a href="javascript:deleteConfirm(<%=dto.getBoard_num() %>)"><i class="far fa-trash-alt"></i>삭제</a>
         <%} %>

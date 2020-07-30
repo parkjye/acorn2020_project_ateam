@@ -188,11 +188,13 @@
             </tbody>
           </table>
         </div>
+        
         <div class="button__writer__btn">
-					<%if(users_id != null) {%>
-						<button class="myButton" onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">후기쓰기</button>
-						<%} %>
-				</div>
+			<%if(users_id != null) {%>
+			<button class="myButton" onclick="location.href='${pageContext.request.contextPath}/pages/private/review-write-form.jsp'">후기쓰기</button>
+			<%} %>
+		</div>
+		
 		<!-- 키워드 검색 -->
 		<form action="reviews.jsp" method="get">
 			<button onclick="location.href='reviews.jsp'">목록 보기</button>
