@@ -82,4 +82,5 @@
 }
 .contentWrap{
   padding: 20px;
+  overflow: auto;
 }
