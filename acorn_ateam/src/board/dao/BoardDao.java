@@ -37,7 +37,7 @@ public class BoardDao {
 			String sql = "select * from (select result1.*, rownum as rnum"
 					+ " from (select board_num, users_id, board_title, board_content,"
 					+ " board_view, board_comment_count, board_up, board_down,"
-					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mi:ss') as board_date"
 					+ " from tb_board where board_title like '%'|| ? ||'%' order by board_num desc) result1)"
 					+ " where rnum between ? and ?";
 			
@@ -149,7 +149,7 @@ public class BoardDao {
 			String sql = "select * from (select result1.*, rownum as rnum"
 					+ " from (select board_num, users_id, board_title, board_content,"
 					+ " board_view, board_comment_count, board_up, board_down,"
-					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mi:ss') as board_date"
 					+ " from tb_board where users_id like '%'|| ? ||'%' order by board_num desc) result1)"
 					+ " where rnum between ? and ?";
 			
@@ -261,7 +261,7 @@ public class BoardDao {
 			String sql = "select * from (select result1.*, rownum as rnum"
 					+ " from (select board_num, users_id, board_title, board_content,"
 					+ " board_view, board_comment_count, board_up, board_down,"
-					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mi:ss') as board_date"
 					+ " from tb_board where users_id like '%'|| ? ||'%' OR"
 					+ " board_title like '%'|| ? ||'%' order by board_num desc) result1)"
 					+ " where rnum between ? and ?";
@@ -381,7 +381,7 @@ public class BoardDao {
 			String sql = "SELECT * from (select result1.*, rownum as rnum"
 					+ " from (select board_num, users_id, board_title,"
 					+ " board_view, board_comment_count, board_up, board_down,"
-					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mi:ss') as board_date"
 					+ " from tb_board order by board_num desc) result1)"
 					+ " where rnum between ? and ?";
 			
@@ -443,7 +443,7 @@ public class BoardDao {
 			//실행할 sql 문 준비하기
 			String sql = "select board_num, users_id, board_title, board_content,"
 					+ " board_view, board_up, board_down,"
-					+ " to_char(board_date, 'yy/mm/dd hh24:mm:ss') as board_date"
+					+ " to_char(board_date, 'yy/mm/dd hh24:mi:ss') as board_date"
 					+ " from tb_board"
 					+ " where board_num=?";
 
